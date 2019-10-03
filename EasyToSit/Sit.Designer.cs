@@ -430,7 +430,7 @@
             this.p0004 = new System.Windows.Forms.Panel();
             this.panel47 = new System.Windows.Forms.Panel();
             this.p0006 = new System.Windows.Forms.Panel();
-            this.p0000 = new System.Windows.Forms.Panel();
+            this.p1 = new System.Windows.Forms.Panel();
             this.p0005 = new System.Windows.Forms.Panel();
             this.p0003 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -893,7 +893,7 @@
             this.tableLayoutPanel1.Controls.Add(this.p0004, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel47, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.p0006, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.p0000, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.p1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.p0005, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.p0003, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
@@ -4125,13 +4125,13 @@
             this.p0006.Size = new System.Drawing.Size(31, 15);
             this.p0006.TabIndex = 8;
             // 
-            // p0000
+            // p1
             // 
-            this.p0000.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p0000.Location = new System.Drawing.Point(3, 3);
-            this.p0000.Name = "p0000";
-            this.p0000.Size = new System.Drawing.Size(33, 15);
-            this.p0000.TabIndex = 0;
+            this.p1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.p1.Location = new System.Drawing.Point(3, 3);
+            this.p1.Name = "p1";
+            this.p1.Size = new System.Drawing.Size(33, 15);
+            this.p1.TabIndex = 0;
             // 
             // p0005
             // 
@@ -4725,7 +4725,7 @@
         private System.Windows.Forms.Panel p0004;
         private System.Windows.Forms.Panel panel47;
         private System.Windows.Forms.Panel p0006;
-        private System.Windows.Forms.Panel p0000;
+        private System.Windows.Forms.Panel p1;
         private System.Windows.Forms.Panel p0005;
         private System.Windows.Forms.Panel p0003;
         private System.Windows.Forms.Panel panel2;
