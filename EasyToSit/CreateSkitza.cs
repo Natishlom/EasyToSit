@@ -19,7 +19,6 @@ namespace EasyToSit
 
         private void CreateSkitza_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
