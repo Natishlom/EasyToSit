@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace EasyToSit
 {
@@ -32,21 +33,23 @@ namespace EasyToSit
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUserName.Text.Equals(userName))
+
+            if (txtUserName.Text.Length > 0)
             {
-                if (txtPass.Text.Equals(password))
+                if (txtUserName.Text.Equals(userName))
                 {
-                    //CreateSkitza createSkitzaPage = new CreateSkitza();
-                    //createSkitzaPage.MdiParent = this;
-                    //createSkitzaPage.Dock = DockStyle.Fill;
-                    //createSkitzaPage.Show();
-                    this.Close();
+                    if (txtPass.Text.Equals(password))
+                    {
+                        this.Close();
+                    }
+                    else
+                        messageBox("הסיסמה שהזנת שגויה, נא הזן סיסמה שנית", "שגיאה");
                 }
                 else
-                    messageBox("הסיסמה שהזנת שגויה, נא הזן סיסמה שנית", "שגיאה");
+                    messageBox("שם המשתמש שהזנת אינו קיים, נא הזן שם המשתמש שנית", "שגיאה");
             }
             else
-            messageBox("שם המשתמש שהזנת אינו קיים, נא הזן שם המשתמש שנית", "שגיאה");
+                messageBox("לא הוכנס שם משתמש","שגיאה");
         }
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)

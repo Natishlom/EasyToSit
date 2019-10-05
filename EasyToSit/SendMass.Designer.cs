@@ -64,7 +64,6 @@
             // 
             this.checkGuests.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             this.checkGuests.BackColor = System.Drawing.Color.Transparent;
-            this.checkGuests.BackgroundImage = global::EasyToSit.Properties.Resources.EasyToSit;
             this.checkGuests.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.checkGuests.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.checkGuests.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -79,7 +78,6 @@
             // 
             this.bodyMessage.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             this.bodyMessage.BackColor = System.Drawing.Color.Transparent;
-            this.bodyMessage.BackgroundImage = global::EasyToSit.Properties.Resources.EasyToSit;
             this.bodyMessage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.bodyMessage.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.bodyMessage.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -94,7 +92,6 @@
             // 
             this.tabSend.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             this.tabSend.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabSend.BackgroundImage = global::EasyToSit.Properties.Resources.EasyToSit;
             this.tabSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.tabSend.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.tabSend.ForeColor = System.Drawing.Color.WhiteSmoke;
