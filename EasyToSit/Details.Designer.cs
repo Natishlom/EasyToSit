@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelDetails = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel20 = new System.Windows.Forms.Panel();
@@ -47,7 +48,7 @@
             this.txtSpak3 = new System.Windows.Forms.TextBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.lblSpak1 = new System.Windows.Forms.Label();
-            this.txtspak1 = new System.Windows.Forms.TextBox();
+            this.txtSpak1 = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.lblDj = new System.Windows.Forms.Label();
             this.txtDj = new System.Windows.Forms.TextBox();
@@ -104,6 +105,7 @@
             this.txtExpenses = new System.Windows.Forms.TextBox();
             this.lblExpenses = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panelDetails.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel20.SuspendLayout();
@@ -138,7 +140,7 @@
             this.panelDetails.Location = new System.Drawing.Point(0, 0);
             this.panelDetails.Name = "panelDetails";
             this.panelDetails.Size = new System.Drawing.Size(780, 373);
-            this.panelDetails.TabIndex = 1;
+            this.panelDetails.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -189,20 +191,22 @@
             this.panel20.Location = new System.Drawing.Point(3, 321);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(254, 49);
-            this.panel20.TabIndex = 7;
+            this.panel20.TabIndex = 0;
             // 
             // lblSpak10
             // 
-            this.lblSpak10.AutoSize = true;
+            this.lblSpak10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak10.ForeColor = System.Drawing.Color.Silver;
-            this.lblSpak10.Location = new System.Drawing.Point(160, 6);
+            this.lblSpak10.Location = new System.Drawing.Point(142, 0);
             this.lblSpak10.Name = "lblSpak10";
             this.lblSpak10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak10.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak10.Size = new System.Drawing.Size(112, 49);
             this.lblSpak10.TabIndex = 0;
             this.lblSpak10.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak10.DoubleClick += new System.EventHandler(this.lblSpak10_DoubleClick);
+            this.lblSpak10.MouseHover += new System.EventHandler(this.lblSpak10_MouseHover);
             // 
             // txtSpak10
             // 
@@ -225,20 +229,22 @@
             this.panel18.Location = new System.Drawing.Point(3, 215);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(254, 47);
-            this.panel18.TabIndex = 7;
+            this.panel18.TabIndex = 0;
             // 
             // lblSpak8
             // 
-            this.lblSpak8.AutoSize = true;
+            this.lblSpak8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak8.ForeColor = System.Drawing.Color.Silver;
-            this.lblSpak8.Location = new System.Drawing.Point(160, 6);
+            this.lblSpak8.Location = new System.Drawing.Point(142, 0);
             this.lblSpak8.Name = "lblSpak8";
             this.lblSpak8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak8.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak8.Size = new System.Drawing.Size(112, 47);
             this.lblSpak8.TabIndex = 0;
             this.lblSpak8.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak8.DoubleClick += new System.EventHandler(this.lblSpak8_DoubleClick);
+            this.lblSpak8.MouseHover += new System.EventHandler(this.lblSpak8_MouseHover);
             // 
             // txtSpak8
             // 
@@ -261,20 +267,22 @@
             this.panel19.Location = new System.Drawing.Point(3, 109);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(254, 47);
-            this.panel19.TabIndex = 6;
+            this.panel19.TabIndex = 0;
             // 
             // lblSpak6
             // 
-            this.lblSpak6.AutoSize = true;
+            this.lblSpak6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak6.ForeColor = System.Drawing.Color.Silver;
-            this.lblSpak6.Location = new System.Drawing.Point(165, 6);
+            this.lblSpak6.Location = new System.Drawing.Point(142, 0);
             this.lblSpak6.Name = "lblSpak6";
             this.lblSpak6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak6.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak6.Size = new System.Drawing.Size(112, 47);
             this.lblSpak6.TabIndex = 0;
             this.lblSpak6.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak6.DoubleClick += new System.EventHandler(this.lblSpak6_DoubleClick);
+            this.lblSpak6.MouseHover += new System.EventHandler(this.lblSpak6_MouseHover);
             // 
             // txtSpak6
             // 
@@ -297,20 +305,22 @@
             this.panel17.Location = new System.Drawing.Point(3, 3);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(254, 47);
-            this.panel17.TabIndex = 6;
+            this.panel17.TabIndex = 0;
             // 
             // lblSpak4
             // 
-            this.lblSpak4.AutoSize = true;
+            this.lblSpak4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak4.ForeColor = System.Drawing.Color.Silver;
-            this.lblSpak4.Location = new System.Drawing.Point(165, 6);
+            this.lblSpak4.Location = new System.Drawing.Point(142, 0);
             this.lblSpak4.Name = "lblSpak4";
             this.lblSpak4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak4.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak4.Size = new System.Drawing.Size(112, 47);
             this.lblSpak4.TabIndex = 0;
             this.lblSpak4.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak4.DoubleClick += new System.EventHandler(this.lblSpak4_DoubleClick);
+            this.lblSpak4.MouseHover += new System.EventHandler(this.lblSpak4_MouseHover);
             // 
             // txtSpak4
             // 
@@ -333,20 +343,22 @@
             this.panel16.Location = new System.Drawing.Point(263, 321);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(254, 49);
-            this.panel16.TabIndex = 6;
+            this.panel16.TabIndex = 0;
             // 
             // lblSpak3
             // 
-            this.lblSpak3.AutoSize = true;
+            this.lblSpak3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak3.ForeColor = System.Drawing.Color.Silver;
-            this.lblSpak3.Location = new System.Drawing.Point(165, 6);
+            this.lblSpak3.Location = new System.Drawing.Point(142, 0);
             this.lblSpak3.Name = "lblSpak3";
             this.lblSpak3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak3.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak3.Size = new System.Drawing.Size(112, 49);
             this.lblSpak3.TabIndex = 0;
             this.lblSpak3.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak3.DoubleClick += new System.EventHandler(this.lblSpak3_DoubleClick);
+            this.lblSpak3.MouseHover += new System.EventHandler(this.lblSpak3_MouseHover);
             // 
             // txtSpak3
             // 
@@ -364,38 +376,40 @@
             // panel15
             // 
             this.panel15.Controls.Add(this.lblSpak1);
-            this.panel15.Controls.Add(this.txtspak1);
+            this.panel15.Controls.Add(this.txtSpak1);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(263, 215);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(254, 47);
-            this.panel15.TabIndex = 6;
+            this.panel15.TabIndex = 0;
             // 
             // lblSpak1
             // 
-            this.lblSpak1.AutoSize = true;
+            this.lblSpak1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak1.ForeColor = System.Drawing.Color.Silver;
-            this.lblSpak1.Location = new System.Drawing.Point(165, 6);
+            this.lblSpak1.Location = new System.Drawing.Point(142, 0);
             this.lblSpak1.Name = "lblSpak1";
             this.lblSpak1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak1.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak1.Size = new System.Drawing.Size(112, 47);
             this.lblSpak1.TabIndex = 0;
             this.lblSpak1.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak1.DoubleClick += new System.EventHandler(this.lblSpak1_DoubleClick);
+            this.lblSpak1.MouseHover += new System.EventHandler(this.lblSpak1_MouseHover);
             // 
-            // txtspak1
+            // txtSpak1
             // 
-            this.txtspak1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtspak1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtspak1.ForeColor = System.Drawing.Color.Silver;
-            this.txtspak1.Location = new System.Drawing.Point(0, 0);
-            this.txtspak1.Multiline = true;
-            this.txtspak1.Name = "txtspak1";
-            this.txtspak1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtspak1.Size = new System.Drawing.Size(142, 47);
-            this.txtspak1.TabIndex = 12;
-            this.txtspak1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSpak1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtSpak1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtSpak1.ForeColor = System.Drawing.Color.Silver;
+            this.txtSpak1.Location = new System.Drawing.Point(0, 0);
+            this.txtSpak1.Multiline = true;
+            this.txtSpak1.Name = "txtSpak1";
+            this.txtSpak1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtSpak1.Size = new System.Drawing.Size(142, 47);
+            this.txtSpak1.TabIndex = 12;
+            this.txtSpak1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel14
             // 
@@ -405,7 +419,7 @@
             this.panel14.Location = new System.Drawing.Point(263, 109);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(254, 47);
-            this.panel14.TabIndex = 6;
+            this.panel14.TabIndex = 0;
             // 
             // lblDj
             // 
@@ -441,7 +455,7 @@
             this.panel13.Location = new System.Drawing.Point(523, 321);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(254, 49);
-            this.panel13.TabIndex = 6;
+            this.panel13.TabIndex = 0;
             // 
             // lblLighting
             // 
@@ -477,7 +491,7 @@
             this.panel12.Location = new System.Drawing.Point(523, 215);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(254, 47);
-            this.panel12.TabIndex = 6;
+            this.panel12.TabIndex = 0;
             // 
             // lblCountOfGuest
             // 
@@ -513,7 +527,7 @@
             this.panel10.Location = new System.Drawing.Point(263, 3);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(254, 47);
-            this.panel10.TabIndex = 6;
+            this.panel10.TabIndex = 0;
             // 
             // lblDesign
             // 
@@ -550,20 +564,22 @@
             this.panel9.Location = new System.Drawing.Point(3, 56);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(254, 47);
-            this.panel9.TabIndex = 7;
+            this.panel9.TabIndex = 0;
             // 
             // lblSpak5
             // 
-            this.lblSpak5.AutoSize = true;
+            this.lblSpak5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblSpak5.Location = new System.Drawing.Point(165, 4);
+            this.lblSpak5.Location = new System.Drawing.Point(142, 0);
             this.lblSpak5.Name = "lblSpak5";
             this.lblSpak5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak5.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak5.Size = new System.Drawing.Size(112, 47);
             this.lblSpak5.TabIndex = 0;
             this.lblSpak5.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak5.DoubleClick += new System.EventHandler(this.lblSpak5_DoubleClick);
+            this.lblSpak5.MouseHover += new System.EventHandler(this.lblSpak5_MouseHover);
             // 
             // txtSpak5
             // 
@@ -588,20 +604,22 @@
             this.panel8.Location = new System.Drawing.Point(3, 162);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(254, 47);
-            this.panel8.TabIndex = 7;
+            this.panel8.TabIndex = 0;
             // 
             // lblSpak7
             // 
-            this.lblSpak7.AutoSize = true;
+            this.lblSpak7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblSpak7.Location = new System.Drawing.Point(160, 4);
+            this.lblSpak7.Location = new System.Drawing.Point(142, 0);
             this.lblSpak7.Name = "lblSpak7";
             this.lblSpak7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak7.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak7.Size = new System.Drawing.Size(112, 47);
             this.lblSpak7.TabIndex = 0;
             this.lblSpak7.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak7.DoubleClick += new System.EventHandler(this.lblSpak7_DoubleClick);
+            this.lblSpak7.MouseHover += new System.EventHandler(this.lblSpak7_MouseHover);
             // 
             // txtSpak7
             // 
@@ -626,20 +644,22 @@
             this.panel7.Location = new System.Drawing.Point(3, 268);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(254, 47);
-            this.panel7.TabIndex = 7;
+            this.panel7.TabIndex = 0;
             // 
             // lblSpak9
             // 
-            this.lblSpak9.AutoSize = true;
+            this.lblSpak9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblSpak9.Location = new System.Drawing.Point(160, 4);
+            this.lblSpak9.Location = new System.Drawing.Point(142, 0);
             this.lblSpak9.Name = "lblSpak9";
             this.lblSpak9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak9.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak9.Size = new System.Drawing.Size(112, 47);
             this.lblSpak9.TabIndex = 0;
             this.lblSpak9.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak9.DoubleClick += new System.EventHandler(this.lblSpak9_DoubleClick);
+            this.lblSpak9.MouseHover += new System.EventHandler(this.lblSpak9_MouseHover);
             // 
             // txtSpak9
             // 
@@ -664,17 +684,17 @@
             this.panel5.Location = new System.Drawing.Point(263, 162);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(254, 47);
-            this.panel5.TabIndex = 7;
+            this.panel5.TabIndex = 0;
             // 
             // lblBar
             // 
-            this.lblBar.AutoSize = true;
+            this.lblBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblBar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblBar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblBar.Location = new System.Drawing.Point(151, 4);
+            this.lblBar.Location = new System.Drawing.Point(142, 0);
             this.lblBar.Name = "lblBar";
             this.lblBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblBar.Size = new System.Drawing.Size(97, 36);
+            this.lblBar.Size = new System.Drawing.Size(112, 47);
             this.lblBar.TabIndex = 0;
             this.lblBar.Text = "מחיר\r\n שירותי מזיגה:";
             this.lblBar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -702,7 +722,7 @@
             this.panel4.Location = new System.Drawing.Point(263, 56);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(254, 47);
-            this.panel4.TabIndex = 7;
+            this.panel4.TabIndex = 0;
             // 
             // lblPhotography
             // 
@@ -739,7 +759,7 @@
             this.panelNames.Location = new System.Drawing.Point(523, 3);
             this.panelNames.Name = "panelNames";
             this.panelNames.Size = new System.Drawing.Size(254, 47);
-            this.panelNames.TabIndex = 3;
+            this.panelNames.TabIndex = 0;
             // 
             // lblUserName
             // 
@@ -776,7 +796,7 @@
             this.panelTaype.Location = new System.Drawing.Point(523, 56);
             this.panelTaype.Name = "panelTaype";
             this.panelTaype.Size = new System.Drawing.Size(254, 47);
-            this.panelTaype.TabIndex = 4;
+            this.panelTaype.TabIndex = 0;
             // 
             // cboTaype
             // 
@@ -795,7 +815,7 @@
             this.cboTaype.Name = "cboTaype";
             this.cboTaype.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cboTaype.Size = new System.Drawing.Size(142, 21);
-            this.cboTaype.TabIndex = 1;
+            this.cboTaype.TabIndex = 2;
             // 
             // lblTaype
             // 
@@ -820,7 +840,7 @@
             this.panel1.Location = new System.Drawing.Point(523, 162);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(254, 47);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 0;
             // 
             // panel11
             // 
@@ -829,7 +849,7 @@
             this.panel11.Location = new System.Drawing.Point(9, 50);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(245, 44);
-            this.panel11.TabIndex = 6;
+            this.panel11.TabIndex = 0;
             // 
             // label12
             // 
@@ -893,7 +913,7 @@
             this.panel3.Location = new System.Drawing.Point(523, 268);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(254, 47);
-            this.panel3.TabIndex = 7;
+            this.panel3.TabIndex = 0;
             // 
             // lblDose
             // 
@@ -931,20 +951,22 @@
             this.panel6.Location = new System.Drawing.Point(263, 268);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(254, 47);
-            this.panel6.TabIndex = 7;
+            this.panel6.TabIndex = 0;
             // 
             // lblSpak2
             // 
-            this.lblSpak2.AutoSize = true;
+            this.lblSpak2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSpak2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblSpak2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblSpak2.Location = new System.Drawing.Point(165, 4);
+            this.lblSpak2.Location = new System.Drawing.Point(142, 0);
             this.lblSpak2.Name = "lblSpak2";
             this.lblSpak2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblSpak2.Size = new System.Drawing.Size(69, 36);
+            this.lblSpak2.Size = new System.Drawing.Size(112, 47);
             this.lblSpak2.TabIndex = 0;
             this.lblSpak2.Text = "**שם/סוג \r\nהספק:";
             this.lblSpak2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSpak2.DoubleClick += new System.EventHandler(this.lblSpak2_DoubleClick);
+            this.lblSpak2.MouseHover += new System.EventHandler(this.lblSpak2_MouseHover);
             // 
             // txtSpak2
             // 
@@ -968,7 +990,7 @@
             this.panel2.Location = new System.Drawing.Point(523, 109);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(254, 47);
-            this.panel2.TabIndex = 5;
+            this.panel2.TabIndex = 0;
             // 
             // lblDate
             // 
@@ -1010,7 +1032,7 @@
             this.panelSummary.Location = new System.Drawing.Point(0, 370);
             this.panelSummary.Name = "panelSummary";
             this.panelSummary.Size = new System.Drawing.Size(780, 52);
-            this.panelSummary.TabIndex = 2;
+            this.panelSummary.TabIndex = 0;
             // 
             // txtProfitOrLoss
             // 
@@ -1020,7 +1042,7 @@
             this.txtProfitOrLoss.Name = "txtProfitOrLoss";
             this.txtProfitOrLoss.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtProfitOrLoss.Size = new System.Drawing.Size(127, 29);
-            this.txtProfitOrLoss.TabIndex = 25;
+            this.txtProfitOrLoss.TabIndex = 99999;
             this.txtProfitOrLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblProfitOrLoss
@@ -1044,7 +1066,7 @@
             this.txtRevenue.Name = "txtRevenue";
             this.txtRevenue.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtRevenue.Size = new System.Drawing.Size(134, 29);
-            this.txtRevenue.TabIndex = 23;
+            this.txtRevenue.TabIndex = 99999;
             this.txtRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblRevenue
@@ -1062,13 +1084,15 @@
             // 
             // txtExpenses
             // 
+            this.txtExpenses.BackColor = System.Drawing.Color.White;
             this.txtExpenses.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtExpenses.ForeColor = System.Drawing.Color.Silver;
+            this.txtExpenses.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.txtExpenses.Location = new System.Drawing.Point(565, 10);
             this.txtExpenses.Name = "txtExpenses";
+            this.txtExpenses.ReadOnly = true;
             this.txtExpenses.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtExpenses.Size = new System.Drawing.Size(132, 29);
-            this.txtExpenses.TabIndex = 0;
+            this.txtExpenses.TabIndex = 99999;
             this.txtExpenses.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblExpenses
@@ -1097,6 +1121,14 @@
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "שמור";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseHover += new System.EventHandler(this.btnSave_MouseHover);
+            // 
+            // toolTip
+            // 
+            this.toolTip.BackColor = System.Drawing.Color.DodgerBlue;
+            this.toolTip.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.toolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip_Draw);
             // 
             // Details
             // 
@@ -1196,7 +1228,7 @@
         private System.Windows.Forms.TextBox txtSpak3;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label lblSpak1;
-        private System.Windows.Forms.TextBox txtspak1;
+        private System.Windows.Forms.TextBox txtSpak1;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label lblDj;
         private System.Windows.Forms.TextBox txtDj;
@@ -1245,5 +1277,6 @@
         private System.Windows.Forms.Label lblRevenue;
         private System.Windows.Forms.TextBox txtExpenses;
         private System.Windows.Forms.ComboBox cboTaype;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

@@ -33,23 +33,30 @@ namespace EasyToSit
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-            if (txtUserName.Text.Length > 0)
+            //בדיקה האם הוכנס שם משתמש
+            if (txtUserName.Text.Length > 0 && !txtUserName.Text.Equals("שם משתמש"))
             {
-                if (txtUserName.Text.Equals(userName))
+                if (!txtPass.Text.Equals("סיסמה") && txtPass.Text.Length > 0)
                 {
-                    if (txtPass.Text.Equals(password))
+                    if (txtUserName.Text.Equals(userName))
                     {
-                        this.Close();
+                        if (txtPass.Text.Equals(password))
+                        {
+                                this.Close();
+                        }
+                        else
+                        {
+                            messageBox("הסיסמה שהזנת שגויה, נא הזן סיסמה שנית", "שגיאה");
+                        }
                     }
                     else
-                        messageBox("הסיסמה שהזנת שגויה, נא הזן סיסמה שנית", "שגיאה");
+                        messageBox("שם המשתמש שהזנת אינו קיים, נא הזן שם המשתמש שנית", "שגיאה");
                 }
                 else
-                    messageBox("שם המשתמש שהזנת אינו קיים, נא הזן שם המשתמש שנית", "שגיאה");
+                    messageBox("לא הוזנה סיסמה", "שגיאה");
             }
             else
-                messageBox("נתי שלו מאי","שגיאה");
+                messageBox("לא הוכנס שם משתמש!", "שגיאה");
         }
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
