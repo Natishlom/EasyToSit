@@ -49,7 +49,7 @@ namespace EasyToSit
                     messageBox("שם המשתמש שהזנת אינו קיים, נא הזן שם המשתמש שנית", "שגיאה");
             }
             else
-                messageBox("נתי שלו מאי","שגיאה");
+                messageBox("נתי ש לו מאי","שגיאה");
         }
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
