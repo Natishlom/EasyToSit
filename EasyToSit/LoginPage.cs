@@ -33,8 +33,8 @@ namespace EasyToSit
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-            if (txtUserName.Text.Length > 0)
+            //בדיקה האם הוכנס שם משתמש
+            if (txtUserName.Text.Length > 0 && !txtUserName.Text.Equals("שם משתמש"))
             {
                 if (txtUserName.Text.Equals(userName))
                 {
@@ -49,7 +49,7 @@ namespace EasyToSit
                     messageBox("שם המשתמש שהזנת אינו קיים, נא הזן שם המשתמש שנית", "שגיאה");
             }
             else
-                messageBox("","שגיאה");
+                messageBox("נתי שלו מאי","שגיאה");
         }
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)

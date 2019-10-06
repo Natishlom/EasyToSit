@@ -14,7 +14,8 @@ namespace EasyToSit
 
     public partial class EasyToSit : Form
     {
-       
+        Details detailsPage = null;
+        Guests guestsPage = null;
 
         public EasyToSit()
         {
@@ -28,10 +29,18 @@ namespace EasyToSit
             CheckIt(lblDetails, pitemDetails, lblGuests, pitemGuests, lblCreateSkitza, pitemCreateSkitza, lblSendMass, pitemSendMass, lblSit, pitemSit);
             panelSecond.Width = 0;
             lblMenu.Text = "תפריט";
-            Details detailsPage = new Details();
-            detailsPage.MdiParent = this;
-            detailsPage.Dock = DockStyle.Fill;
-            detailsPage.Show();
+
+            SetCurrentTofes();
+
+            if (detailsPage == null)
+            {
+                detailsPage = new Details();
+                detailsPage.MdiParent = this;
+                detailsPage.Dock = DockStyle.Fill;
+                detailsPage.Show();
+            }
+            else
+                detailsPage.Show();
         }
 
         private void lblGuests_Click(object sender, EventArgs e)
@@ -39,10 +48,18 @@ namespace EasyToSit
             CheckIt(lblGuests, pitemGuests, lblSit, pitemSit, lblCreateSkitza, pitemCreateSkitza, lblSendMass, pitemSendMass, lblDetails, pitemDetails);
             panelSecond.Width = 0;
             lblMenu.Text = "תפריט";
-            Guests guestsPage = new Guests();
-            guestsPage.MdiParent = this;
-            guestsPage.Dock = DockStyle.Fill;
-            guestsPage.Show();
+
+            SetCurrentTofes();
+            if (guestsPage == null)
+            {
+                guestsPage = new Guests();
+                guestsPage.MdiParent = this;
+                guestsPage.Dock = DockStyle.Fill;
+                guestsPage.Show();
+
+            }
+            else
+                guestsPage.Show();
         }
 
         private void lblCreateSkitza_Click(object sender, EventArgs e)
@@ -91,6 +108,15 @@ namespace EasyToSit
             l4.BackColor = Color.FromArgb(4, 63, 155);
             p4.BackColor = Color.FromArgb(4, 63, 155);
 
+        }
+
+        internal void SetCurrentTofes()
+        {
+            if(detailsPage != null)
+                detailsPage.Hide();
+
+            if (guestsPage != null)
+                guestsPage.Hide();
         }
 
         private void lblExit_Click(object sender, EventArgs e)

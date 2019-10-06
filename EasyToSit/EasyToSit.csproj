@@ -93,6 +93,12 @@
     <Compile Include="Sit.Designer.cs">
       <DependentUpon>Sit.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateName.Designer.cs">
+      <DependentUpon>UpdateName.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CreateSkitza.resx">
       <DependentUpon>CreateSkitza.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sit.resx">
       <DependentUpon>Sit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateName.resx">
+      <DependentUpon>UpdateName.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
