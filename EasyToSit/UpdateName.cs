@@ -14,9 +14,11 @@ namespace EasyToSit
     {
         private string name;
         private string price;
+        private bool netunim;
 
         public string Name1 { get => name; set => name = value; }
         public string Price { get => price; set => price = value; }
+        public bool Netunim { get => netunim; set => netunim = value; }
 
         public UpdateName()
         {
@@ -27,10 +29,11 @@ namespace EasyToSit
         {
             if (txtName.Text.Length > 0)
             {
-                Name1= txtName.Text;
+                Name1 = txtName.Text;
                 if (txtCostOfSapak.Text.Length > 0)
                 {
-                   Price=txtCostOfSapak.Text;
+                    Price = txtCostOfSapak.Text;
+                    Netunim = true;
                     this.Close();
                 }
                 else
@@ -46,6 +49,12 @@ namespace EasyToSit
         {
             txtCostOfSapak.Clear();
             txtName.Clear();
+        }
+
+        private void lblExit_Click(object sender, EventArgs e)
+        {
+            Netunim = false;
+            this.Close();
         }
     }
 }

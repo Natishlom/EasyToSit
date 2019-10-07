@@ -16,6 +16,7 @@ namespace EasyToSit
 
         private const string userName = "nati";
         private const string password = "1234";
+        public string path= System.Windows.Forms.Application.StartupPath;
         public LoginPage()
         {
             InitializeComponent();
@@ -88,5 +89,10 @@ namespace EasyToSit
             MessageBox.Show(content, title, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
         }
         #endregion
+
+        private void btnForgotPass_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

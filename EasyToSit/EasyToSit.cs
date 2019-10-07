@@ -16,6 +16,11 @@ namespace EasyToSit
     {
         Details detailsPage = null;
         Guests guestsPage = null;
+        CreateSkitza createSkitzaPage = null;
+        SendMass sendMassPage = null;
+        Sit sitPage = null;
+
+
 
         public EasyToSit()
         {
@@ -67,10 +72,16 @@ namespace EasyToSit
             CheckIt(lblCreateSkitza, pitemCreateSkitza, lblGuests, pitemGuests, lblSit, pitemSit, lblSendMass, pitemSendMass, lblDetails, pitemDetails);
             panelSecond.Width = 0;
             lblMenu.Text = "תפריט";
-            CreateSkitza createSkitzaPage = new CreateSkitza();
-            createSkitzaPage.MdiParent = this;
-            createSkitzaPage.Dock = DockStyle.Fill;
-            createSkitzaPage.Show();
+            SetCurrentTofes();
+            if (createSkitzaPage == null)
+            {
+                createSkitzaPage = new CreateSkitza();
+                createSkitzaPage.MdiParent = this;
+                createSkitzaPage.Dock = DockStyle.Fill;
+                createSkitzaPage.Show();
+            }
+            else
+                createSkitzaPage.Show();
         }
 
         private void lblSendMass_Click(object sender, EventArgs e)
@@ -78,10 +89,17 @@ namespace EasyToSit
             CheckIt(lblSendMass, pitemSendMass, lblGuests, pitemGuests, lblCreateSkitza, pitemCreateSkitza, lblSit, pitemSit, lblDetails, pitemDetails);
             panelSecond.Width = 0;
             lblMenu.Text = "תפריט";
-            SendMass sendMassPage = new SendMass();
-            sendMassPage.MdiParent = this;
-            sendMassPage.Dock = DockStyle.Fill;
-            sendMassPage.Show();
+            SetCurrentTofes();
+
+            if (sendMassPage == null)
+            {
+                sendMassPage = new SendMass();
+                sendMassPage.MdiParent = this;
+                sendMassPage.Dock = DockStyle.Fill;
+                sendMassPage.Show();
+            }
+            else
+                sendMassPage.Show();
         }
 
         private void lblSit_Click(object sender, EventArgs e)
@@ -89,10 +107,17 @@ namespace EasyToSit
             CheckIt(lblSit, pitemSit, lblGuests, pitemGuests, lblCreateSkitza, pitemCreateSkitza, lblSendMass, pitemSendMass, lblDetails, pitemDetails);
             panelSecond.Width = 0;
             lblMenu.Text = "תפריט";
-            Sit sitPage = new Sit();
-            sitPage.MdiParent = this;
-            sitPage.Dock = DockStyle.Fill;
-            sitPage.Show();
+            SetCurrentTofes();
+
+            if (sitPage == null)
+            {
+                sitPage = new Sit();
+                sitPage.MdiParent = this;
+                sitPage.Dock = DockStyle.Fill;
+                sitPage.Show();
+            }
+            else
+                sitPage.Show();
         }
 
         public void CheckIt(Label l, Panel p, Label l1, Panel p1, Label l2, Panel p2, Label l3, Panel p3, Label l4, Panel p4)
@@ -112,11 +137,20 @@ namespace EasyToSit
 
         internal void SetCurrentTofes()
         {
-            if(detailsPage != null)
+            if (detailsPage != null)
                 detailsPage.Hide();
 
             if (guestsPage != null)
                 guestsPage.Hide();
+
+            if (createSkitzaPage != null)
+                createSkitzaPage.Hide();
+
+            if (sendMassPage != null)
+                sendMassPage.Hide();
+
+            if (sitPage != null)
+                sitPage.Hide();
         }
 
         private void lblExit_Click(object sender, EventArgs e)
