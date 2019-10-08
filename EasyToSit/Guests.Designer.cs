@@ -36,10 +36,11 @@
             this.panelBody = new System.Windows.Forms.Panel();
             this.dataGuests = new System.Windows.Forms.DataGridView();
             this.panelSave = new System.Windows.Forms.Panel();
-            this.txtCount = new System.Windows.Forms.TextBox();
             this.lblCount = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtCount = new System.Windows.Forms.TextBox();
+            this.rowNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FristName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +65,10 @@
             // 
             // dataGuests
             // 
+            this.dataGuests.AllowUserToDeleteRows = false;
+            this.dataGuests.AllowUserToOrderColumns = true;
+            this.dataGuests.AllowUserToResizeColumns = false;
+            this.dataGuests.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -83,6 +88,7 @@
             this.dataGuests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGuests.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rowNumber,
             this.FristName,
             this.lastName,
             this.count,
@@ -100,6 +106,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGuests.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGuests.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGuests.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGuests.EnableHeadersVisualStyles = false;
             this.dataGuests.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGuests.Location = new System.Drawing.Point(0, 0);
             this.dataGuests.Name = "dataGuests";
@@ -114,10 +122,14 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGuests.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGuests.RowHeadersWidth = 20;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGuests.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGuests.Size = new System.Drawing.Size(796, 461);
             this.dataGuests.TabIndex = 0;
+            this.dataGuests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGuests_CellClick);
+            this.dataGuests.NewRowNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGuests_NewRowNeeded);
+            this.dataGuests.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGuests_RowsAdded);
             // 
             // panelSave
             // 
@@ -131,17 +143,6 @@
             this.panelSave.Name = "panelSave";
             this.panelSave.Size = new System.Drawing.Size(796, 43);
             this.panelSave.TabIndex = 0;
-            // 
-            // txtCount
-            // 
-            this.txtCount.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtCount.ForeColor = System.Drawing.Color.Silver;
-            this.txtCount.Location = new System.Drawing.Point(531, 6);
-            this.txtCount.Name = "txtCount";
-            this.txtCount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtCount.Size = new System.Drawing.Size(165, 29);
-            this.txtCount.TabIndex = 0;
-            this.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCount
             // 
@@ -182,6 +183,26 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "שמור";
             this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // txtCount
+            // 
+            this.txtCount.BackColor = System.Drawing.Color.White;
+            this.txtCount.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtCount.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txtCount.Location = new System.Drawing.Point(531, 8);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.ReadOnly = true;
+            this.txtCount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtCount.Size = new System.Drawing.Size(165, 29);
+            this.txtCount.TabIndex = 25;
+            this.txtCount.TabStop = false;
+            this.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // rowNumber
+            // 
+            this.rowNumber.FillWeight = 35F;
+            this.rowNumber.HeaderText = "מס שורה";
+            this.rowNumber.Name = "rowNumber";
             // 
             // FristName
             // 
@@ -261,6 +282,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rowNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn FristName;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn count;

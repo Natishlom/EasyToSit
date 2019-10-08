@@ -285,12 +285,7 @@ namespace EasyToSit
         #region מעבר בין הזנת פרטים
         private void txtUserName_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                cboTaype.Focus();
-                txtUserName.Text = txtUserName.Text;
-               txtUserName.Text= txtUserName.Text.Remove(txtUserName.Text.LastIndexOf(txtUserName.Text));
-            }
+
         }
 
         public void NextTextBox(TextBox t, object sender, KeyEventArgs e)
@@ -308,7 +303,7 @@ namespace EasyToSit
 
         private void txtDate_KeyDown(object sender, KeyEventArgs e)
         {
-            NextTextBox(txtNameHall, sender, e);
+           NextTextBox(txtNameHall, sender, e);
         }
 
         private void txtNameHall_KeyDown(object sender, KeyEventArgs e)
@@ -409,10 +404,7 @@ namespace EasyToSit
 
         private void txtSpak10_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnSave.Focus();
-            }
+
         }
         #endregion
     }

@@ -99,13 +99,13 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.panelSummary = new System.Windows.Forms.Panel();
             this.lblProfitOrLoss = new System.Windows.Forms.Label();
+            this.txtProfitOrLoss = new System.Windows.Forms.TextBox();
+            this.txtRevenue = new System.Windows.Forms.TextBox();
             this.lblRevenue = new System.Windows.Forms.Label();
             this.txtExpenses = new System.Windows.Forms.TextBox();
             this.lblExpenses = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.txtRevenue = new System.Windows.Forms.TextBox();
-            this.txtProfitOrLoss = new System.Windows.Forms.TextBox();
             this.panelDetails.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel20.SuspendLayout();
@@ -220,7 +220,6 @@
             this.txtSpak10.Size = new System.Drawing.Size(142, 49);
             this.txtSpak10.TabIndex = 21;
             this.txtSpak10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak10_KeyDown);
             // 
             // panel18
             // 
@@ -259,7 +258,6 @@
             this.txtSpak8.Size = new System.Drawing.Size(142, 47);
             this.txtSpak8.TabIndex = 19;
             this.txtSpak8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak8_KeyDown);
             // 
             // panel19
             // 
@@ -298,7 +296,6 @@
             this.txtSpak6.Size = new System.Drawing.Size(142, 47);
             this.txtSpak6.TabIndex = 17;
             this.txtSpak6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak6_KeyDown);
             // 
             // panel17
             // 
@@ -337,7 +334,6 @@
             this.txtSpak4.Size = new System.Drawing.Size(142, 47);
             this.txtSpak4.TabIndex = 15;
             this.txtSpak4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak4_KeyDown);
             // 
             // panel16
             // 
@@ -376,7 +372,6 @@
             this.txtSpak3.Size = new System.Drawing.Size(142, 49);
             this.txtSpak3.TabIndex = 14;
             this.txtSpak3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak3_KeyDown);
             // 
             // panel15
             // 
@@ -415,7 +410,6 @@
             this.txtSpak1.Size = new System.Drawing.Size(142, 47);
             this.txtSpak1.TabIndex = 12;
             this.txtSpak1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak1_KeyDown);
             // 
             // panel14
             // 
@@ -452,7 +446,6 @@
             this.txtDj.Size = new System.Drawing.Size(142, 47);
             this.txtDj.TabIndex = 10;
             this.txtDj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDj_KeyDown);
             // 
             // panel13
             // 
@@ -489,7 +482,6 @@
             this.txtLighting.Size = new System.Drawing.Size(142, 49);
             this.txtLighting.TabIndex = 7;
             this.txtLighting.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtLighting.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLighting_KeyDown);
             // 
             // panel12
             // 
@@ -526,7 +518,6 @@
             this.txtCountOfGuest.Size = new System.Drawing.Size(142, 47);
             this.txtCountOfGuest.TabIndex = 5;
             this.txtCountOfGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCountOfGuest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCountOfGuest_KeyDown);
             // 
             // panel10
             // 
@@ -563,7 +554,6 @@
             this.txtDesign.Size = new System.Drawing.Size(142, 47);
             this.txtDesign.TabIndex = 8;
             this.txtDesign.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDesign.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDesign_KeyDown);
             // 
             // panel9
             // 
@@ -604,7 +594,6 @@
             this.txtSpak5.Size = new System.Drawing.Size(142, 47);
             this.txtSpak5.TabIndex = 16;
             this.txtSpak5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak5_KeyDown);
             // 
             // panel8
             // 
@@ -645,7 +634,6 @@
             this.txtSpak7.Size = new System.Drawing.Size(142, 47);
             this.txtSpak7.TabIndex = 18;
             this.txtSpak7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak7_KeyDown);
             // 
             // panel7
             // 
@@ -686,7 +674,6 @@
             this.txtSpak9.Size = new System.Drawing.Size(142, 47);
             this.txtSpak9.TabIndex = 20;
             this.txtSpak9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak9_KeyDown);
             // 
             // panel5
             // 
@@ -725,7 +712,6 @@
             this.txtBar.Size = new System.Drawing.Size(142, 47);
             this.txtBar.TabIndex = 11;
             this.txtBar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBar_KeyDown);
             // 
             // panel4
             // 
@@ -764,7 +750,6 @@
             this.txtPhotography.Size = new System.Drawing.Size(142, 47);
             this.txtPhotography.TabIndex = 9;
             this.txtPhotography.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPhotography.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPhotography_KeyDown);
             // 
             // panelNames
             // 
@@ -801,7 +786,6 @@
             this.txtUserName.Size = new System.Drawing.Size(142, 47);
             this.txtUserName.TabIndex = 1;
             this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtUserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUserName_KeyDown);
             // 
             // panelTaype
             // 
@@ -833,7 +817,6 @@
             this.cboTaype.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cboTaype.Size = new System.Drawing.Size(142, 28);
             this.cboTaype.TabIndex = 2;
-            this.cboTaype.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboTaype_KeyDown);
             // 
             // lblTaype
             // 
@@ -921,7 +904,6 @@
             this.txtNameHall.Size = new System.Drawing.Size(142, 47);
             this.txtNameHall.TabIndex = 4;
             this.txtNameHall.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtNameHall.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameHall_KeyDown);
             // 
             // panel3
             // 
@@ -960,7 +942,6 @@
             this.txtDose.Size = new System.Drawing.Size(142, 47);
             this.txtDose.TabIndex = 6;
             this.txtDose.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDose.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDose_KeyDown);
             // 
             // panel6
             // 
@@ -1001,7 +982,6 @@
             this.txtSpak2.Size = new System.Drawing.Size(142, 47);
             this.txtSpak2.TabIndex = 13;
             this.txtSpak2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSpak2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpak2_KeyDown);
             // 
             // panel2
             // 
@@ -1038,7 +1018,6 @@
             this.txtDate.Size = new System.Drawing.Size(142, 47);
             this.txtDate.TabIndex = 3;
             this.txtDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDate_KeyDown);
             // 
             // panelSummary
             // 
@@ -1068,6 +1047,34 @@
             this.lblProfitOrLoss.TabIndex = 26;
             this.lblProfitOrLoss.Text = "רווח/הפסד:";
             this.lblProfitOrLoss.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtProfitOrLoss
+            // 
+            this.txtProfitOrLoss.BackColor = System.Drawing.Color.White;
+            this.txtProfitOrLoss.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtProfitOrLoss.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txtProfitOrLoss.Location = new System.Drawing.Point(126, 10);
+            this.txtProfitOrLoss.Name = "txtProfitOrLoss";
+            this.txtProfitOrLoss.ReadOnly = true;
+            this.txtProfitOrLoss.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtProfitOrLoss.Size = new System.Drawing.Size(132, 29);
+            this.txtProfitOrLoss.TabIndex = 0;
+            this.txtProfitOrLoss.TabStop = false;
+            this.txtProfitOrLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtRevenue
+            // 
+            this.txtRevenue.BackColor = System.Drawing.Color.White;
+            this.txtRevenue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtRevenue.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txtRevenue.Location = new System.Drawing.Point(348, 10);
+            this.txtRevenue.Name = "txtRevenue";
+            this.txtRevenue.ReadOnly = true;
+            this.txtRevenue.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtRevenue.Size = new System.Drawing.Size(132, 29);
+            this.txtRevenue.TabIndex = 0;
+            this.txtRevenue.TabStop = false;
+            this.txtRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblRevenue
             // 
@@ -1130,34 +1137,6 @@
             this.toolTip.BackColor = System.Drawing.Color.DodgerBlue;
             this.toolTip.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.toolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip_Draw);
-            // 
-            // txtRevenue
-            // 
-            this.txtRevenue.BackColor = System.Drawing.Color.White;
-            this.txtRevenue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtRevenue.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.txtRevenue.Location = new System.Drawing.Point(348, 10);
-            this.txtRevenue.Name = "txtRevenue";
-            this.txtRevenue.ReadOnly = true;
-            this.txtRevenue.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtRevenue.Size = new System.Drawing.Size(132, 29);
-            this.txtRevenue.TabIndex = 0;
-            this.txtRevenue.TabStop = false;
-            this.txtRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtProfitOrLoss
-            // 
-            this.txtProfitOrLoss.BackColor = System.Drawing.Color.White;
-            this.txtProfitOrLoss.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtProfitOrLoss.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.txtProfitOrLoss.Location = new System.Drawing.Point(126, 10);
-            this.txtProfitOrLoss.Name = "txtProfitOrLoss";
-            this.txtProfitOrLoss.ReadOnly = true;
-            this.txtProfitOrLoss.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtProfitOrLoss.Size = new System.Drawing.Size(132, 29);
-            this.txtProfitOrLoss.TabIndex = 0;
-            this.txtProfitOrLoss.TabStop = false;
-            this.txtProfitOrLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Details
             // 
