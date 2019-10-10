@@ -22,6 +22,7 @@ namespace EasyToSit
 
 
 
+
         public EasyToSit()
         {
             InitializeComponent();

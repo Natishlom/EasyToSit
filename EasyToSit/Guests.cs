@@ -36,6 +36,7 @@ namespace EasyToSit
             NewRowNeeded = true;
             if (NewRowNeeded)
             {
+                Guest guest = new Guest();
                 NewRowNeeded = false;
                 new LoginPage().messageBox("new row", "");
             }
