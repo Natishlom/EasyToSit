@@ -27,7 +27,7 @@ namespace EasyToSit
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 txtPass.Text = "";
-                txtPass.UseSystemPasswordChar = true;
+                //txtPass.UseSystemPasswordChar = true;
                 txtPass.Focus();
             }
         }
