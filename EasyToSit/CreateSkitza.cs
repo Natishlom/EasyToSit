@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyToSit.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,13 @@ namespace EasyToSit
     public partial class CreateSkitza : Form
     {
         private Panel panelTemp;
-        string exePath =
-    System.IO.Path.GetDirectoryName(
-        System.Reflection.Assembly.GetEntryAssembly().Location);
+        private List<Table> Tables=new List<Table>();
+        private PictureBox picture= new PictureBox {
+            SizeMode = PictureBoxSizeMode.StretchImage,
+        Dock = DockStyle.Fill
+        };
+        
 
-        public Panel PanelTemp { get => panelTemp; set => panelTemp = value; }
 
         public CreateSkitza()
         {
@@ -29,40 +32,85 @@ namespace EasyToSit
 
         }
 
-        public void AddItem(Panel p)
+        //הצגת חלון בלחיצה על קליק ימני
+        public void AddItem(MouseEventArgs e)
         {
-            menuStrip.Show(this, p.Location.X, p.Location.Y);
+           
         }
 
+        //יצירת אובייקט שולחן והוספת התמונה
         private void CreateTable()
         {
+            
+        }
+
+
+        private void toolTable_Click(object sender, EventArgs e)
+        {
             Table table = new Table();
+            //הצגת חלון להוספת פרטים על השולחן
             table.ShowDialog();
+            table.Panel = panelTemp;
+            //הוספת השולחן לרשימה של שולחנות
+            Tables.Add(table);
             //בדיקה אם הוזנו נתונים.
             if (table.Netunim.Equals(true))
             {
-                PictureBox picture = new PictureBox
-                {
-                    Name = "pictureTable",
-                    Size = new Size(33, 14),
-                    Dock = DockStyle.Fill,
-                    Location = new Point(panelTemp.Location.X, panelTemp.Location.Y)
-                };
-                panelTemp.Controls.Add(picture);
-                picture.ImageLocation =exePath+ @"table.png";
+                //הוספת תמונה של שולחן
+                picture.Image = Resources.table;
+                picture.Refresh();
+                picture.Visible = true;
             }
         }
 
 
-        private void p0000_MouseClick(object sender, MouseEventArgs e)
+        private void toolTip_Draw(object sender, DrawToolTipEventArgs e)
         {
-            panelTemp = p0000;
-            AddItem(p0000);
+            e.DrawBackground();
+            e.DrawBorder();
+            e.DrawText();
         }
 
-        private void toolTable_Click(object sender, EventArgs e)
+       
+
+        public void ShowToolTip( IWin32Window w,int numOfTable,int numOfGuest)
         {
-            CreateTable();
+            string s = string.Format("מספר השולחן: {0}",numOfTable + Environment.NewLine+ "מספר הסועדים: {1}",numOfTable);
+            toolTip.Show(s, w);
+            toolTip.OwnerDraw = true;
+        }
+
+        private void panel4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                menuStrip.Show();
+            }
+
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                menuStrip.Show();
+            }
+        }
+
+        private void panel2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                menuStrip.Show();
+            }
+        }
+
+        private void panel3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                menuStrip.Show();
+            }
         }
     }
 }

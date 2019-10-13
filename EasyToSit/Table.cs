@@ -15,10 +15,14 @@ namespace EasyToSit
         private int diner;
         private int numberTable;
         private bool netunim;
+        private Panel panel;
+        private PictureBox picture;
 
         public int Diner { get => diner; set => diner = value; }
         public int NumberTable { get => numberTable; set => numberTable = value; }
         public bool Netunim { get => netunim; set => netunim = value; }
+        public Panel Panel { get => panel; set => panel = value; }
+        public PictureBox Picture { get => picture; set => picture = value; }
 
         public Table()
         {
@@ -87,5 +91,8 @@ namespace EasyToSit
                 return 0;
             }
         }
+
+       
+
     }
 }

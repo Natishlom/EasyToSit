@@ -41,7 +41,7 @@
             // 
             // panelDetails
             // 
-            this.panelDetails.BackgroundImage = global::EasyToSit.Properties.Resources.EasyToSit;
+            //this.panelDetails.BackgroundImage = global::EasyToSit.Properties.Resources.EasyToSit;
             this.panelDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelDetails.Controls.Add(this.lblExit);
             this.panelDetails.Controls.Add(this.btnSave);
