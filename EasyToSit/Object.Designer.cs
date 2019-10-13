@@ -1,6 +1,6 @@
 ﻿namespace EasyToSit
 {
-    partial class Table
+    partial class Object
     {
         /// <summary>
         /// Required designer variable.

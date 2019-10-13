@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace EasyToSit
 {
-    public partial class Table : Form
+    public partial class Object : Form
     {
+        private int id;
         private int diner;
         private int numberTable;
         private bool netunim;
-        private Panel panel;
         private PictureBox picture;
 
         public int Diner { get => diner; set => diner = value; }
         public int NumberTable { get => numberTable; set => numberTable = value; }
         public bool Netunim { get => netunim; set => netunim = value; }
-        public Panel Panel { get => panel; set => panel = value; }
         public PictureBox Picture { get => picture; set => picture = value; }
+        public int Id { get => id; set => id = value; }
 
-        public Table()
+        public Object()
         {
             InitializeComponent();
         }

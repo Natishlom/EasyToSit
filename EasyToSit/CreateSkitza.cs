@@ -13,13 +13,11 @@ namespace EasyToSit
 {
     public partial class CreateSkitza : Form
     {
+        Object objectTemp;
         private Panel panelTemp;
-        private List<Table> Tables=new List<Table>();
-        private PictureBox picture= new PictureBox {
-            SizeMode = PictureBoxSizeMode.StretchImage,
-        Dock = DockStyle.Fill
-        };
-        
+        private List<Object> objects = new List<Object>();
+        private PictureBox tempPic;
+
 
 
         public CreateSkitza()
@@ -27,42 +25,42 @@ namespace EasyToSit
             InitializeComponent();
         }
 
-        private void CreateSkitza_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        //הצגת חלון בלחיצה על קליק ימני
-        public void AddItem(MouseEventArgs e)
-        {
-           
-        }
-
-        //יצירת אובייקט שולחן והוספת התמונה
-        private void CreateTable()
-        {
-            
-        }
-
-
         private void toolTable_Click(object sender, EventArgs e)
         {
-            Table table = new Table();
-            //הצגת חלון להוספת פרטים על השולחן
-            table.ShowDialog();
-            table.Panel = panelTemp;
-            //הוספת השולחן לרשימה של שולחנות
-            Tables.Add(table);
-            //בדיקה אם הוזנו נתונים.
-            if (table.Netunim.Equals(true))
+            objectTemp.ShowDialog();
+            if (objectTemp.Netunim.Equals(true))
             {
-                //הוספת תמונה של שולחן
-                picture.Image = Resources.table;
-                picture.Refresh();
-                picture.Visible = true;
+                objects.Add(objectTemp);
+                objectTemp.Picture.Image = Resources.table;
+                objectTemp.Picture.Visible = true;
+            
             }
         }
 
+        private void toolStage_Click(object sender, EventArgs e)
+        {
+            objectTemp.Picture.Image = Resources.stage;
+        }
+
+        private void toolDoor_Click(object sender, EventArgs e)
+        {
+            objectTemp.Picture.Image = Resources.door;
+        }
+
+        private void toolKitchen_Click(object sender, EventArgs e)
+        {
+            objectTemp.Picture.Image = Resources.kitchen;
+        }
+
+        private void toolBar_Click(object sender, EventArgs e)
+        {
+            objectTemp.Picture.Image = Resources.bar;
+        }
+
+        private void toolDelete_Click(object sender, EventArgs e)
+        {
+            objectTemp.Picture.Image = null;
+        }
 
         private void toolTip_Draw(object sender, DrawToolTipEventArgs e)
         {
@@ -71,46 +69,33 @@ namespace EasyToSit
             e.DrawText();
         }
 
-       
 
-        public void ShowToolTip( IWin32Window w,int numOfTable,int numOfGuest)
+        public void ShowToolTip(IWin32Window w, int numOfTable, int numOfGuest)
         {
-            string s = string.Format("מספר השולחן: {0}",numOfTable + Environment.NewLine+ "מספר הסועדים: {1}",numOfTable);
+            string s = string.Format("מספר השולחן: {0}", numOfTable + Environment.NewLine + "מספר הסועדים: {1}", numOfTable);
             toolTip.Show(s, w);
             toolTip.OwnerDraw = true;
         }
 
-        private void panel4_MouseClick(object sender, MouseEventArgs e)
+        private void ShowMenuStrip(MouseEventArgs e, PictureBox p)
         {
             if (e.Button == MouseButtons.Right)
             {
-                menuStrip.Show();
-            }
-
-        }
-
-        private void panel1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                menuStrip.Show();
+                menuStrip.Show(this, p.Location);
             }
         }
 
-        private void panel2_MouseClick(object sender, MouseEventArgs e)
+        private void pictureObject(MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                menuStrip.Show();
-            }
+            objectTemp = new Object();
+            objectTemp.Picture = tempPic;
+            ShowMenuStrip(e, objectTemp.Picture);
         }
 
-        private void panel3_MouseClick(object sender, MouseEventArgs e)
+        private void picture1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                menuStrip.Show();
-            }
+            tempPic = (PictureBox)sender;
+            pictureObject(e);
         }
     }
 }
