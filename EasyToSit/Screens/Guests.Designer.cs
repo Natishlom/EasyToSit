@@ -36,10 +36,10 @@
             this.panelBody = new System.Windows.Forms.Panel();
             this.dataGuests = new System.Windows.Forms.DataGridView();
             this.panelSave = new System.Windows.Forms.Panel();
+            this.txtCount = new System.Windows.Forms.TextBox();
             this.lblCount = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtCount = new System.Windows.Forms.TextBox();
             this.rowNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FristName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -144,6 +144,20 @@
             this.panelSave.Size = new System.Drawing.Size(796, 43);
             this.panelSave.TabIndex = 0;
             // 
+            // txtCount
+            // 
+            this.txtCount.BackColor = System.Drawing.Color.White;
+            this.txtCount.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtCount.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txtCount.Location = new System.Drawing.Point(531, 8);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.ReadOnly = true;
+            this.txtCount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtCount.Size = new System.Drawing.Size(165, 29);
+            this.txtCount.TabIndex = 25;
+            this.txtCount.TabStop = false;
+            this.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // lblCount
             // 
             this.lblCount.AutoSize = true;
@@ -183,20 +197,6 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "שמור";
             this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // txtCount
-            // 
-            this.txtCount.BackColor = System.Drawing.Color.White;
-            this.txtCount.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtCount.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.txtCount.Location = new System.Drawing.Point(531, 8);
-            this.txtCount.Name = "txtCount";
-            this.txtCount.ReadOnly = true;
-            this.txtCount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtCount.Size = new System.Drawing.Size(165, 29);
-            this.txtCount.TabIndex = 25;
-            this.txtCount.TabStop = false;
-            this.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // rowNumber
             // 
@@ -255,9 +255,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(796, 461);
             this.Controls.Add(this.panelSave);
             this.Controls.Add(this.panelBody);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -266,6 +268,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Guests";
+            this.Load += new System.EventHandler(this.Guests_Load);
             this.panelBody.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGuests)).EndInit();
             this.panelSave.ResumeLayout(false);

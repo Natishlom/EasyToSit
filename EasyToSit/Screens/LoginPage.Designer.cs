@@ -36,7 +36,6 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panelBody = new System.Windows.Forms.Panel();
             this.panelForgot = new System.Windows.Forms.Panel();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnSavePass = new System.Windows.Forms.Button();
@@ -46,10 +45,11 @@
             this.txtPasswordForgot = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblFogot = new System.Windows.Forms.Label();
+            this.panelBody = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             this.panelMain.SuspendLayout();
-            this.panelBody.SuspendLayout();
             this.panelForgot.SuspendLayout();
+            this.panelBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblLoginPage
@@ -143,19 +143,6 @@
             this.panelMain.Size = new System.Drawing.Size(796, 461);
             this.panelMain.TabIndex = 2;
             // 
-            // panelBody
-            // 
-            this.panelBody.Controls.Add(this.btnLogin);
-            this.panelBody.Controls.Add(this.btnForgotPass);
-            this.panelBody.Controls.Add(this.txtPass);
-            this.panelBody.Controls.Add(this.txtUserName);
-            this.panelBody.Controls.Add(this.lblLoginPage);
-            this.panelBody.Location = new System.Drawing.Point(35, 131);
-            this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(718, 294);
-            this.panelBody.TabIndex = 0;
-            this.panelBody.TabStop = true;
-            // 
             // panelForgot
             // 
             this.panelForgot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -169,7 +156,7 @@
             this.panelForgot.Controls.Add(this.lblFogot);
             this.panelForgot.Location = new System.Drawing.Point(32, 136);
             this.panelForgot.Name = "panelForgot";
-            this.panelForgot.Size = new System.Drawing.Size(741, 322);
+            this.panelForgot.Size = new System.Drawing.Size(741, 320);
             this.panelForgot.TabIndex = 9;
             // 
             // btnSend
@@ -281,6 +268,19 @@
             this.lblFogot.Text = "ברגעים אלו תקבל סיסמת איפוס לנייד.\r\nנא הזן סיסמה זו על מנת לאפס סיסמתך.";
             this.lblFogot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelBody
+            // 
+            this.panelBody.Controls.Add(this.btnLogin);
+            this.panelBody.Controls.Add(this.btnForgotPass);
+            this.panelBody.Controls.Add(this.txtPass);
+            this.panelBody.Controls.Add(this.txtUserName);
+            this.panelBody.Controls.Add(this.lblLoginPage);
+            this.panelBody.Location = new System.Drawing.Point(35, 131);
+            this.panelBody.Name = "panelBody";
+            this.panelBody.Size = new System.Drawing.Size(718, 294);
+            this.panelBody.TabIndex = 0;
+            this.panelBody.TabStop = true;
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,10 +299,10 @@
             this.Load += new System.EventHandler(this.LoginPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
             this.panelMain.ResumeLayout(false);
-            this.panelBody.ResumeLayout(false);
-            this.panelBody.PerformLayout();
             this.panelForgot.ResumeLayout(false);
             this.panelForgot.PerformLayout();
+            this.panelBody.ResumeLayout(false);
+            this.panelBody.PerformLayout();
             this.ResumeLayout(false);
 
         }

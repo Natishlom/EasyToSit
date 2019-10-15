@@ -8,26 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//
+using System.Data;
+using System.Data.SqlClient;
+using EasyToSit.Classes;
+
 namespace EasyToSit
 {
 
 
     public partial class EasyToSit : Form
     {
-        Details detailsPage = null;
-        Guests guestsPage = null;
-        CreateSkitza createSkitzaPage = null;
-        SendMass sendMassPage = null;
-        Sit sitPage = null;
-
-
-
 
         public EasyToSit()
         {
             InitializeComponent();
         }
 
+        Details detailsPage = null;
+        Guests guestsPage = null;
+        CreateSkitza createSkitzaPage = null;
+        SendMass sendMassPage = null;
+        Sit sitPage = null;
 
         #region הגדרות עבור תפריט ראשי
         private void lblDetails_Click(object sender, EventArgs e)
@@ -453,6 +455,7 @@ namespace EasyToSit
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EasyTosit";
             this.Load += new System.EventHandler(this.EasyToSit_Load);
+          //  this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EasyToSit_KeyDown);
             this.panelSecond.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pitemDetails.ResumeLayout(false);
@@ -474,6 +477,7 @@ namespace EasyToSit
 
         private void EasyToSit_Load(object sender, EventArgs e)
         {
+
             LoginPage loginPage = new LoginPage();
             loginPage.MdiParent = this;
             loginPage.Dock = DockStyle.Fill;

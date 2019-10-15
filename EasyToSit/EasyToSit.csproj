@@ -36,6 +36,7 @@
       <HintPath>obj\Debug\EasyToSit.exe</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
@@ -49,35 +50,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateSketch.cs">
+    <Compile Include="Classes\SQLServerConnection.cs" />
+    <Compile Include="Screens\CreateSkitza.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateSketch.Designer.cs">
-      <DependentUpon>CreateSketch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CreateSkitza.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateSkitza.Designer.cs">
+    <Compile Include="Screens\CreateSkitza.Designer.cs">
       <DependentUpon>CreateSkitza.cs</DependentUpon>
     </Compile>
-    <Compile Include="Details.cs">
+    <Compile Include="Screens\Details.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Details.Designer.cs">
+    <Compile Include="Screens\Details.Designer.cs">
       <DependentUpon>Details.cs</DependentUpon>
     </Compile>
-    <Compile Include="Guest.cs" />
-    <Compile Include="Guests.cs">
+    <Compile Include="Classes\Guest.cs" />
+    <Compile Include="Screens\Guests.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Guests.Designer.cs">
+    <Compile Include="Screens\Guests.Designer.cs">
       <DependentUpon>Guests.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginPage.cs">
+    <Compile Include="Screens\LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginPage.Designer.cs">
+    <Compile Include="Screens\LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
     <Compile Include="EasyToSit.cs">
@@ -88,22 +84,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SendMass.cs">
+    <Compile Include="Screens\SendMass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SendMass.Designer.cs">
+    <Compile Include="Screens\SendMass.Designer.cs">
       <DependentUpon>SendMass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sit.cs">
+    <Compile Include="Screens\Sit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sit.Designer.cs">
+    <Compile Include="Screens\Sit.Designer.cs">
       <DependentUpon>Sit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Object.cs">
+    <Compile Include="Classes\Object.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Object.Designer.cs">
+    <Compile Include="Classes\Object.Designer.cs">
       <DependentUpon>Object.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateName.cs">
@@ -112,22 +108,17 @@
     <Compile Include="UpdateName.Designer.cs">
       <DependentUpon>UpdateName.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CreateSketch.resx">
-      <DependentUpon>CreateSketch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateSkitza.resx">
-      <DependentUpon>CreateSkitza.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Details.resx">
+    <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Screens\Details.resx">
       <DependentUpon>Details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EasyToSit.resx">
       <DependentUpon>EasyToSit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Guests.resx">
+    <EmbeddedResource Include="Screens\Guests.resx">
       <DependentUpon>Guests.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginPage.resx">
+    <EmbeddedResource Include="Screens\LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -140,13 +131,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SendMass.resx">
+    <EmbeddedResource Include="Screens\SendMass.resx">
       <DependentUpon>SendMass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sit.resx">
+    <EmbeddedResource Include="Screens\Sit.resx">
       <DependentUpon>Sit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Object.resx">
+    <EmbeddedResource Include="Classes\Object.resx">
       <DependentUpon>Object.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateName.resx">

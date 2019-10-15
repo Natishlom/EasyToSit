@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
+//
+
+
 
 namespace EasyToSit
 {
@@ -111,6 +114,8 @@ namespace EasyToSit
         private void LoginPage_Load(object sender, EventArgs e)
         {
             panelForgot.Hide();
+
+
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -237,5 +242,6 @@ namespace EasyToSit
                 txtNewPassAgian.SelectAll();
 
         }
+
     }
 }
