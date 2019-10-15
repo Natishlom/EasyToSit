@@ -33,7 +33,7 @@ namespace EasyToSit
                 objects.Add(objectTemp);
                 objectTemp.Picture.Image = Resources.table;
                 objectTemp.Picture.Visible = true;
-            
+
             }
         }
 

@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateSketch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateSketch.Designer.cs">
+      <DependentUpon>CreateSketch.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateSkitza.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="UpdateName.Designer.cs">
       <DependentUpon>UpdateName.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CreateSketch.resx">
+      <DependentUpon>CreateSketch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateSkitza.resx">
       <DependentUpon>CreateSkitza.cs</DependentUpon>
     </EmbeddedResource>
