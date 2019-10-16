@@ -45,6 +45,7 @@ namespace EasyToSit.Classes
                     "Descriptions:" + ex.Message.ToString(), " C# WPF Connect to SQL Server", MessageBoxButtons.OK);
             }
         }
+
         public static void closeConnection()
         {
             try

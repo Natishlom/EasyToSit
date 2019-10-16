@@ -200,45 +200,57 @@
             // 
             // rowNumber
             // 
+            this.rowNumber.DataPropertyName = "GuestId";
             this.rowNumber.FillWeight = 35F;
             this.rowNumber.HeaderText = "מס שורה";
             this.rowNumber.Name = "rowNumber";
             // 
             // FristName
             // 
+            this.FristName.DataPropertyName = "FirstName";
             this.FristName.HeaderText = "שם פרטי:";
             this.FristName.Name = "FristName";
             // 
             // lastName
             // 
+            this.lastName.DataPropertyName = "LastName";
             this.lastName.HeaderText = "שם משפחה:";
             this.lastName.Name = "lastName";
             // 
             // count
             // 
+            this.count.DataPropertyName = "Count";
             this.count.FillWeight = 50F;
             this.count.HeaderText = "כמות:";
             this.count.Name = "count";
             // 
             // phone
             // 
+            this.phone.DataPropertyName = "PhoneNumber";
             this.phone.HeaderText = "מספר נייד:";
             this.phone.Name = "phone";
             // 
             // chekHazmna
             // 
+            this.chekHazmna.DataPropertyName = "ChekHazmna";
+            this.chekHazmna.FalseValue = "0";
             this.chekHazmna.FillWeight = 35F;
             this.chekHazmna.HeaderText = "קיבל הזמנה:";
             this.chekHazmna.Name = "chekHazmna";
+            this.chekHazmna.TrueValue = "1";
             // 
             // isComing
             // 
+            this.isComing.DataPropertyName = "IsComing";
+            this.isComing.FalseValue = "0";
             this.isComing.FillWeight = 35F;
             this.isComing.HeaderText = "אישר הגעה";
             this.isComing.Name = "isComing";
+            this.isComing.TrueValue = "1";
             // 
             // Gift
             // 
+            this.Gift.DataPropertyName = "Gift";
             this.Gift.FillWeight = 35F;
             this.Gift.HeaderText = "מתנה";
             this.Gift.Name = "Gift";

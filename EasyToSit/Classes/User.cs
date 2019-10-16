@@ -21,6 +21,8 @@ namespace EasyToSit
         private string nameHall;
         private string eMail;
 
+        public User() { }
+
         public User(int id, string userName, string password, string phone, string nameHusband, string nameWife, string laseName,
             string taypeEvent, DateTime dateEvent, string nameHall, string eMail)
         {
@@ -46,7 +48,7 @@ namespace EasyToSit
         public string LaseName { get => laseName; set => laseName = value; }
         public string TaypeEvent { get => taypeEvent; set => taypeEvent = value; }
         public DateTime DateEvent { get => dateEvent; set => dateEvent = value; }
-        public string NameHall1 { get => nameHall; set => nameHall = value; }
+        public string NameHall { get => nameHall; set => nameHall = value; }
         public string EMail { get => eMail; set => eMail = value; }
     }
 }

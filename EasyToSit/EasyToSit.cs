@@ -34,6 +34,7 @@ namespace EasyToSit
         #region הגדרות עבור תפריט ראשי
         private void lblDetails_Click(object sender, EventArgs e)
         {
+           
             CheckIt(lblDetails, pitemDetails, lblGuests, pitemGuests, lblCreateSkitza, pitemCreateSkitza, lblSendMass, pitemSendMass, lblSit, pitemSit);
             panelSecond.Width = 0;
             lblMenu.Text = "תפריט";

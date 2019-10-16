@@ -18,6 +18,7 @@ namespace EasyToSit
     {
         private List<Guest> guestsList = new List<Guest>();
         private bool newRowNeeded;
+        Guest guest;
         public Guests()
         {
             InitializeComponent();
@@ -42,27 +43,53 @@ namespace EasyToSit
             {
                 Guest guest = new Guest();
                 NewRowNeeded = false;
-                new LoginPage().messageBox("new row", "");
+                int maxValue = 0;
+                foreach (Guest g in guestsList)
+                {
+                    maxValue = Math.Max(maxValue, g.GuestId);
+                }
+                //int col = dataGuests.Columns["rowNumber"].Index;
+                //int row = dataGuests.RowCount - 1;
+                //int num = maxValue + 1;
+                //dataGuests.Rows[dataGuests.RowCount-1].Cells[8].Value = num;
             }
+            txtCount.Text = dataGuests.Rows.Count + 1.ToString();
         }
 
         private void Guests_Load(object sender, EventArgs e)
         {
 
-            DbClass.openConnection();
+            string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                con.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM Guests", con);
+                DataTable dtbl = new DataTable();
+                sqlDa.Fill(dtbl);
 
-            DbClass.sql = new SqlCommand("SELECT [GuestId],[FirstName],[LastName],[Count],[PhoneNumber],[CheckHazmna],[IsComing],[Gift] FROM Guests;",cmd);
+                dataGuests.DataSource = dtbl;
 
-            DbClass.cmd.CommandType = CommandType.Text;
-            DbClass.cmd.CommandText = DbClass.sql;
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Guests", con))
+                {
+                    using (IDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Guest guest = new Guest();
+                            guest.GuestId = dr.GetInt32(0);
+                            guest.FirsNames = dr.GetString(1);
+                            guest.LastName = dr.GetString(2);
+                            guest.Quantity = dr.GetInt32(3);
+                            guest.NumberPhone = dr.GetString(4);
+                            guest.Invitation = dr.IsDBNull(5)?false: dr.GetBoolean(5);
+                            guest.IsComing = dr.IsDBNull(6)?false: dr.GetBoolean(6);
+                            guest.Gift = dr.GetInt32(7);
+                            guestsList.Add(guest);
+                        }
+                    }
+                }
+            }
 
-            DbClass.da = new SqlDataAdapter(DbClass.cmd);
-            DbClass.dt = new DataTable();
-            DbClass.da.Fill(DbClass.dt);
-
-            dataGuests.DataSource = DbClass.dt.DefaultView;
-
-            DbClass.closeConnection();
         }
     }
 }
