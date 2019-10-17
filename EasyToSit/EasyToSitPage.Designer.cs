@@ -1,6 +1,6 @@
 ﻿namespace EasyToSit
 {
-    partial class EasyToSit
+    partial class EasyToSitPage
     {
 
         #region Windows Form Designer generated code
@@ -22,6 +22,7 @@
         private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.Label lblExit;
         private System.Windows.Forms.Panel panelTitle;
+        private System.Windows.Forms.Label lblManagement;
     }
 }
 

@@ -154,9 +154,9 @@
             this.panelForgot.Controls.Add(this.txtPasswordForgot);
             this.panelForgot.Controls.Add(this.txtPhone);
             this.panelForgot.Controls.Add(this.lblFogot);
-            this.panelForgot.Location = new System.Drawing.Point(32, 136);
+            this.panelForgot.Location = new System.Drawing.Point(32, 134);
             this.panelForgot.Name = "panelForgot";
-            this.panelForgot.Size = new System.Drawing.Size(741, 320);
+            this.panelForgot.Size = new System.Drawing.Size(721, 322);
             this.panelForgot.TabIndex = 9;
             // 
             // btnSend

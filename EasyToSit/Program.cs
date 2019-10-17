@@ -17,7 +17,7 @@ namespace EasyToSit
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EasyToSit());
+            Application.Run(new EasyToSitPage());
         }
     }
 }

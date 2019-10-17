@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EasyToSit.Classes;
 
 namespace EasyToSit
 {
     public partial class Details : Form
     {
+         User userName;
+        List<User> listUsers;
         private List<TextBox> sapakim = new List<TextBox>();
         public TextBox TxtDate { get => TxtDate; set => TxtDate = value; }
         public TextBox TxtNameHall { get => TxtNameHall; set => TxtNameHall = value; }
@@ -32,11 +35,25 @@ namespace EasyToSit
         public TextBox TxtSpak9 { get => TxtSpak9; set => TxtSpak9 = value; }
         public TextBox TxtSpak10 { get => TxtSpak10; set => TxtSpak10 = value; }
 
-        public Details()
+        public Details(int id)
         {
             InitializeComponent();
             AddSapakim();
+            LoginPage login=new LoginPage();
+            login.GetDatabaseList();
+            listUsers = login.ListUsers;
+            foreach (User u in listUsers)
+            {
+                if(id.Equals(u.Id))
+                {
+                    userName = new User();
+                    userName = u;
+                    break;
+                }
+            }
         }
+
+       
 
         /// <summary>
         /// הוספת כל הספקים השונים לרשימה
@@ -407,5 +424,12 @@ namespace EasyToSit
 
         }
         #endregion
+
+        private void Details_Load(object sender, EventArgs e)
+        {
+            txtUserName.Text = userName.NameHusband + " ו" + userName.NameWife+" "+userName.LaseName;
+            cboTaype.SelectedIndex = cboTaype.FindString(userName.TaypeEvent);
+            txtDate.Text = userName.DateEvent.Date.ToString("MM/dd/yyyy");
+        }
     }
 }

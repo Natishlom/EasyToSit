@@ -51,6 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\SQLServerConnection.cs" />
+    <Compile Include="Screens\CreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\CreateUser.Designer.cs">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\CreateSkitza.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +82,11 @@
     <Compile Include="Screens\LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="EasyToSit.cs">
+    <Compile Include="EasyToSitPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EasyToSit.Designer.cs">
-      <DependentUpon>EasyToSit.cs</DependentUpon>
+    <Compile Include="EasyToSitPage.Designer.cs">
+      <DependentUpon>EasyToSitPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,11 +115,14 @@
       <DependentUpon>UpdateName.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Screens\CreateUser.resx">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Details.resx">
       <DependentUpon>Details.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EasyToSit.resx">
-      <DependentUpon>EasyToSit.cs</DependentUpon>
+    <EmbeddedResource Include="EasyToSitPage.resx">
+      <DependentUpon>EasyToSitPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Guests.resx">
       <DependentUpon>Guests.cs</DependentUpon>

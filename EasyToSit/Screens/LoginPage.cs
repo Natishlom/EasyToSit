@@ -92,6 +92,7 @@ namespace EasyToSit
         private void btnLogin_Click(object sender, EventArgs e)
         {
             GetDatabaseList();
+            int maxId = 0;
             //בדיקה האם הוכנס שם משתמש
             if (txtUserName.Text.Length > 0 && !txtUserName.Text.Equals("שם משתמש"))
             {
@@ -101,6 +102,15 @@ namespace EasyToSit
                     if (txtPass.Text.Equals(user.Password.ToString()))
                     {
                         this.Close();
+                        if (user.UserName.Equals("Easy"))
+                        {
+                            foreach (User u in listUsers)
+                            {
+                                maxId = Math.Max(maxId, u.Id);
+                            }
+                            CreateUser newUser = new CreateUser(maxId + 1);
+                            newUser.Show();
+                        }
                     }
                     else
                         messageBox("הסיסמה שהזנת שגויה, נא הזן סיסמה שנית", "שגיאה");
@@ -173,17 +183,24 @@ namespace EasyToSit
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            if (!txtPhone.Text.Equals("מספר נייד לאיפוס סיסמה:") && txtPhone.Text.Length.Equals(10))
+            GetDatabaseList();
+            GetUser(txtUserName.Text);
+            if (txtUserName.Text.Length > 0)
             {
-                lblFogot.Show();
-                txtPasswordForgot.Show();
-                btnChangePass.Show();
-                SendRestartPassword();
+                if (!txtPhone.Text.Equals("מספר נייד לאיפוס סיסמה:") && txtPhone.Text.Length.Equals(10) && txtPhone.Text.Equals(user.Phone.ToString()))
+                {
+                    lblFogot.Show();
+                    txtPasswordForgot.Show();
+                    btnChangePass.Show();
+                    SendRestartPassword();
+                }
+                else
+                {
+                    messageBox("מספר נייד אינו תקין", "שגיאה");
+                }
             }
             else
-            {
-                messageBox("מספר נייד אינו תקין", "שגיאה");
-            }
+                messageBox("נא להזין את שם המשתמש", "Error");
         }
 
         private void txtPhone_Click(object sender, EventArgs e)
@@ -298,15 +315,6 @@ namespace EasyToSit
             else
                 txtNewPassAgian.SelectAll();
 
-        }
-
-        private void btnAddUser_Click(object sender, EventArgs e)
-        {
-            if (user.UserName.Equals("Easy"))
-            {
-                CreateNewUser createNewUser = new CreateNewUser();
-                createNewUser.Show();
-            }
         }
     }
 }

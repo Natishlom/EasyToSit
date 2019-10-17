@@ -1156,6 +1156,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Details";
+            this.Load += new System.EventHandler(this.Details_Load);
             this.panelDetails.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel20.ResumeLayout(false);

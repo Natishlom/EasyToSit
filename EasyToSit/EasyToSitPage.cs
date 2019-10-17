@@ -17,19 +17,22 @@ namespace EasyToSit
 {
 
 
-    public partial class EasyToSit : Form
+    public partial class EasyToSitPage : Form
     {
 
-        public EasyToSit()
+        public EasyToSitPage()
         {
             InitializeComponent();
         }
-
+        User user;
+        LoginPage loginPage;
         Details detailsPage = null;
         Guests guestsPage = null;
         CreateSkitza createSkitzaPage = null;
         SendMass sendMassPage = null;
         Sit sitPage = null;
+
+        internal User User { get => user; set => user = value; }
 
         #region הגדרות עבור תפריט ראשי
         private void lblDetails_Click(object sender, EventArgs e)
@@ -43,7 +46,7 @@ namespace EasyToSit
 
             if (detailsPage == null)
             {
-                detailsPage = new Details();
+                detailsPage = new Details(loginPage.User.Id);
                 detailsPage.MdiParent = this;
                 detailsPage.Dock = DockStyle.Fill;
                 detailsPage.Show();
@@ -174,6 +177,10 @@ namespace EasyToSit
             {
                 CloseMenu();
             }
+            if (loginPage.User != null)
+            {
+                user = loginPage.User;
+            }
         }
         #endregion
 
@@ -197,7 +204,7 @@ namespace EasyToSit
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EasyToSit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EasyToSitPage));
             this.panelSecond = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pitemDetails = new System.Windows.Forms.Panel();
@@ -440,7 +447,7 @@ namespace EasyToSit
             this.panelTitle.Size = new System.Drawing.Size(800, 39);
             this.panelTitle.TabIndex = 0;
             // 
-            // EasyToSit
+            // EasyToSitPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -452,11 +459,10 @@ namespace EasyToSit
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "EasyToSit";
+            this.Name = "EasyToSitPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EasyTosit";
             this.Load += new System.EventHandler(this.EasyToSit_Load);
-          //  this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EasyToSit_KeyDown);
             this.panelSecond.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pitemDetails.ResumeLayout(false);
@@ -478,11 +484,11 @@ namespace EasyToSit
 
         private void EasyToSit_Load(object sender, EventArgs e)
         {
-
-            LoginPage loginPage = new LoginPage();
+            loginPage = new LoginPage();
             loginPage.MdiParent = this;
             loginPage.Dock = DockStyle.Fill;
             loginPage.Show();
+
         }
 
     }
