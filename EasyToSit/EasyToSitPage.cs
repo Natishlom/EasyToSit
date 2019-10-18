@@ -46,10 +46,17 @@ namespace EasyToSit
 
             if (detailsPage == null)
             {
+                try
+                {
                 detailsPage = new Details(loginPage.User.Id);
                 detailsPage.MdiParent = this;
                 detailsPage.Dock = DockStyle.Fill;
                 detailsPage.Show();
+                }
+                catch(Exception ex)
+                {
+                    new LoginPage().messageBox(ex.Message +Environment.NewLine+"נא לרשום שם משתמש", "Error");
+                }
             }
             else
                 detailsPage.Show();

@@ -35,11 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBody = new System.Windows.Forms.Panel();
             this.dataGuests = new System.Windows.Forms.DataGridView();
-            this.panelSave = new System.Windows.Forms.Panel();
-            this.txtCount = new System.Windows.Forms.TextBox();
-            this.lblCount = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.rowNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FristName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +44,11 @@
             this.isComing = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Gift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delet = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panelSave = new System.Windows.Forms.Panel();
+            this.txtCount = new System.Windows.Forms.TextBox();
+            this.lblCount = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panelBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGuests)).BeginInit();
             this.panelSave.SuspendLayout();
@@ -127,9 +127,71 @@
             this.dataGuests.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGuests.Size = new System.Drawing.Size(796, 461);
             this.dataGuests.TabIndex = 0;
-            this.dataGuests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGuests_CellClick);
-            this.dataGuests.NewRowNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGuests_NewRowNeeded);
             this.dataGuests.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGuests_RowsAdded);
+            // 
+            // rowNumber
+            // 
+            this.rowNumber.DataPropertyName = "GuestId";
+            this.rowNumber.FillWeight = 35F;
+            this.rowNumber.HeaderText = "מס שורה";
+            this.rowNumber.Name = "rowNumber";
+            // 
+            // FristName
+            // 
+            this.FristName.DataPropertyName = "FirstName";
+            this.FristName.HeaderText = "שם פרטי:";
+            this.FristName.Name = "FristName";
+            // 
+            // lastName
+            // 
+            this.lastName.DataPropertyName = "LastName";
+            this.lastName.HeaderText = "שם משפחה:";
+            this.lastName.Name = "lastName";
+            // 
+            // count
+            // 
+            this.count.DataPropertyName = "Count";
+            this.count.FillWeight = 50F;
+            this.count.HeaderText = "כמות:";
+            this.count.Name = "count";
+            // 
+            // phone
+            // 
+            this.phone.DataPropertyName = "PhoneNumber";
+            this.phone.HeaderText = "מספר נייד:";
+            this.phone.Name = "phone";
+            // 
+            // chekHazmna
+            // 
+            this.chekHazmna.DataPropertyName = "ChekHazmna";
+            this.chekHazmna.FalseValue = "0";
+            this.chekHazmna.FillWeight = 35F;
+            this.chekHazmna.HeaderText = "קיבל הזמנה:";
+            this.chekHazmna.Name = "chekHazmna";
+            this.chekHazmna.TrueValue = "1";
+            // 
+            // isComing
+            // 
+            this.isComing.DataPropertyName = "IsComing";
+            this.isComing.FalseValue = "0";
+            this.isComing.FillWeight = 35F;
+            this.isComing.HeaderText = "אישר הגעה";
+            this.isComing.Name = "isComing";
+            this.isComing.TrueValue = "1";
+            // 
+            // Gift
+            // 
+            this.Gift.DataPropertyName = "Gift";
+            this.Gift.FillWeight = 35F;
+            this.Gift.HeaderText = "מתנה";
+            this.Gift.Name = "Gift";
+            // 
+            // delet
+            // 
+            this.delet.FillWeight = 35F;
+            this.delet.HeaderText = "מחק שורה";
+            this.delet.Name = "delet";
+            this.delet.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // panelSave
             // 
@@ -197,70 +259,6 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "שמור";
             this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // rowNumber
-            // 
-            this.rowNumber.DataPropertyName = "GuestId";
-            this.rowNumber.FillWeight = 35F;
-            this.rowNumber.HeaderText = "מס שורה";
-            this.rowNumber.Name = "rowNumber";
-            // 
-            // FristName
-            // 
-            this.FristName.DataPropertyName = "FirstName";
-            this.FristName.HeaderText = "שם פרטי:";
-            this.FristName.Name = "FristName";
-            // 
-            // lastName
-            // 
-            this.lastName.DataPropertyName = "LastName";
-            this.lastName.HeaderText = "שם משפחה:";
-            this.lastName.Name = "lastName";
-            // 
-            // count
-            // 
-            this.count.DataPropertyName = "Count";
-            this.count.FillWeight = 50F;
-            this.count.HeaderText = "כמות:";
-            this.count.Name = "count";
-            // 
-            // phone
-            // 
-            this.phone.DataPropertyName = "PhoneNumber";
-            this.phone.HeaderText = "מספר נייד:";
-            this.phone.Name = "phone";
-            // 
-            // chekHazmna
-            // 
-            this.chekHazmna.DataPropertyName = "ChekHazmna";
-            this.chekHazmna.FalseValue = "0";
-            this.chekHazmna.FillWeight = 35F;
-            this.chekHazmna.HeaderText = "קיבל הזמנה:";
-            this.chekHazmna.Name = "chekHazmna";
-            this.chekHazmna.TrueValue = "1";
-            // 
-            // isComing
-            // 
-            this.isComing.DataPropertyName = "IsComing";
-            this.isComing.FalseValue = "0";
-            this.isComing.FillWeight = 35F;
-            this.isComing.HeaderText = "אישר הגעה";
-            this.isComing.Name = "isComing";
-            this.isComing.TrueValue = "1";
-            // 
-            // Gift
-            // 
-            this.Gift.DataPropertyName = "Gift";
-            this.Gift.FillWeight = 35F;
-            this.Gift.HeaderText = "מתנה";
-            this.Gift.Name = "Gift";
-            // 
-            // delet
-            // 
-            this.delet.FillWeight = 35F;
-            this.delet.HeaderText = "מחק שורה";
-            this.delet.Name = "delet";
-            this.delet.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Guests
             // 

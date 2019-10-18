@@ -63,6 +63,16 @@ namespace EasyToSit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Approval {
+            get {
+                object obj = ResourceManager.GetObject("Approval", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bar {
             get {
                 object obj = ResourceManager.GetObject("bar", resourceCulture);
@@ -96,16 +106,6 @@ namespace EasyToSit.Properties {
         internal static System.Drawing.Bitmap EasyToSit {
             get {
                 object obj = ResourceManager.GetObject("EasyToSit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap EasyToSit1 {
-            get {
-                object obj = ResourceManager.GetObject("EasyToSit1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,6 +163,26 @@ namespace EasyToSit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reminderAprroval {
+            get {
+                object obj = ResourceManager.GetObject("reminderAprroval", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reminderToSit {
+            get {
+                object obj = ResourceManager.GetObject("reminderToSit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stage {
             get {
                 object obj = ResourceManager.GetObject("stage", resourceCulture);
@@ -176,6 +196,26 @@ namespace EasyToSit.Properties {
         internal static System.Drawing.Bitmap table {
             get {
                 object obj = ResourceManager.GetObject("table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tenkes {
+            get {
+                object obj = ResourceManager.GetObject("Tenkes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap todayEvent {
+            get {
+                object obj = ResourceManager.GetObject("todayEvent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

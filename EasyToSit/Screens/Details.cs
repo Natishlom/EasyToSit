@@ -430,6 +430,7 @@ namespace EasyToSit
             txtUserName.Text = userName.NameHusband + " ו" + userName.NameWife+" "+userName.LaseName;
             cboTaype.SelectedIndex = cboTaype.FindString(userName.TaypeEvent);
             txtDate.Text = userName.DateEvent.Date.ToString("MM/dd/yyyy");
+            txtNameHall.Text = userName.NameHall;
         }
     }
 }

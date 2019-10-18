@@ -26,15 +26,6 @@ namespace EasyToSit
 
         public bool NewRowNeeded { get => newRowNeeded; set => newRowNeeded = value; }
 
-        private void dataGuests_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGuests_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
-        {
-            new LoginPage().messageBox("ertrh", "");
-        }
 
         private void dataGuests_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {

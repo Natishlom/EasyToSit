@@ -130,9 +130,6 @@
   <data name="EasyToSit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EasyToSit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EasyToSit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EasyToSit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="kitchen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kitchen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -153,5 +150,20 @@
   </data>
   <data name="table" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Approval" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Approval.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reminderAprroval" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reminderAprroval.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reminderToSit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reminderToSit.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tenkes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tenkes.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="todayEvent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todayEvent.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
