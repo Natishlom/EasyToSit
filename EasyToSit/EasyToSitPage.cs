@@ -100,7 +100,7 @@ namespace EasyToSit
 
             if (sendMassPage == null)
             {
-                sendMassPage = new SendMass();
+                sendMassPage = new SendMass(loginPage.User.Id);
                 sendMassPage.MdiParent = this;
                 sendMassPage.Dock = DockStyle.Fill;
                 sendMassPage.Show();

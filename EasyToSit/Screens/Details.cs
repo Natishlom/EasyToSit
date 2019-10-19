@@ -13,7 +13,7 @@ namespace EasyToSit
 {
     public partial class Details : Form
     {
-         User userName;
+        User userName;
         List<User> listUsers;
         private List<TextBox> sapakim = new List<TextBox>();
         public TextBox TxtDate { get => TxtDate; set => TxtDate = value; }
@@ -39,12 +39,12 @@ namespace EasyToSit
         {
             InitializeComponent();
             AddSapakim();
-            LoginPage login=new LoginPage();
+            LoginPage login = new LoginPage();
             login.GetDatabaseList();
             listUsers = login.ListUsers;
             foreach (User u in listUsers)
             {
-                if(id.Equals(u.Id))
+                if (id.Equals(u.Id))
                 {
                     userName = new User();
                     userName = u;
@@ -53,7 +53,7 @@ namespace EasyToSit
             }
         }
 
-       
+
 
         /// <summary>
         /// הוספת כל הספקים השונים לרשימה
@@ -293,7 +293,7 @@ namespace EasyToSit
         /// </summary>
         /// <param name="txtDate"></param>
         /// <returns></returns>
-        public static bool IsDateTime(string txtDate)
+        public bool IsDateTime(string txtDate)
         {
             DateTime tempDate;
             return DateTime.TryParse(txtDate, out tempDate);
@@ -309,7 +309,7 @@ namespace EasyToSit
         {
             if (e.KeyCode == Keys.Enter)
             {
-                //SendKeys.Send(Keys.Tab.ToString());
+                SendKeys.Send(Keys.Tab.ToString());
             }
         }
 
@@ -427,9 +427,10 @@ namespace EasyToSit
 
         private void Details_Load(object sender, EventArgs e)
         {
-            txtUserName.Text = userName.NameHusband + " ו" + userName.NameWife+" "+userName.LaseName;
+            txtUserName.Text = userName.NameHusband + " ו" + userName.NameWife + " " + userName.LaseName;
             cboTaype.SelectedIndex = cboTaype.FindString(userName.TaypeEvent);
             txtDate.Text = userName.DateEvent.Date.ToString("MM/dd/yyyy");
+            txtNameHall.Text = userName.NameHall;
         }
     }
 }

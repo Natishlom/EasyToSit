@@ -201,5 +201,20 @@
   <ItemGroup>
     <None Include="Resources\stage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Invitation.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reminderComing.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReminderToSit.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thanks.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WeddingReminder.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

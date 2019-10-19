@@ -33,7 +33,6 @@ namespace EasyToSit
 
         private void dataGuests_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            new LoginPage().messageBox("ertrh", "");
         }
 
         private void dataGuests_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -81,8 +80,8 @@ namespace EasyToSit
                             guest.LastName = dr.GetString(2);
                             guest.Quantity = dr.GetInt32(3);
                             guest.NumberPhone = dr.GetString(4);
-                            guest.Invitation = dr.IsDBNull(5)?false: dr.GetBoolean(5);
-                            guest.IsComing = dr.IsDBNull(6)?false: dr.GetBoolean(6);
+                            guest.Invitation = dr.IsDBNull(5) ? false : dr.GetBoolean(5);
+                            guest.IsComing = dr.IsDBNull(6) ? false : dr.GetBoolean(6);
                             guest.Gift = dr.GetInt32(7);
                             guestsList.Add(guest);
                         }
