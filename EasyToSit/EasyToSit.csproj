@@ -201,20 +201,5 @@
   <ItemGroup>
     <None Include="Resources\stage.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Approval.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reminderAprroval.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reminderToSit.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tenkes.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\todayEvent.jpeg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
