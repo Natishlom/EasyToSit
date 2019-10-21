@@ -19,18 +19,20 @@ namespace EasyToSit
 
     public partial class EasyToSitPage : Form
     {
-
-        public EasyToSitPage()
-        {
-            InitializeComponent();
-        }
-        User user;
         LoginPage loginPage;
         Details detailsPage = null;
         Guests guestsPage = null;
         CreateSkitza createSkitzaPage = null;
         SendMass sendMassPage = null;
         Sit sitPage = null;
+        User user;
+        
+
+        public EasyToSitPage()
+        {
+            InitializeComponent();
+
+        }
 
         internal User User { get => user; set => user = value; }
 
@@ -463,6 +465,7 @@ namespace EasyToSit
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EasyTosit";
             this.Load += new System.EventHandler(this.EasyToSit_Load);
+            this.MdiChildActivate += new System.EventHandler(this.EasyToSitPage_MdiChildActivate);
             this.panelSecond.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pitemDetails.ResumeLayout(false);
@@ -491,5 +494,15 @@ namespace EasyToSit
 
         }
 
+        private void EasyToSitPage_MdiChildActivate(object sender, EventArgs e)
+        {
+            //foreach (Form child in MdiChildren)
+            //{
+            //    if (child.Equals(loginPage))
+            //        pictureMenu.Enabled = false;
+            //    else
+            //        pictureMenu.Enabled = true;
+            //}
+        }
     }
 }

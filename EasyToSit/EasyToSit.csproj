@@ -95,7 +95,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Sapak.cs" />
     <Compile Include="Classes\SQLServerConnection.cs" />
+    <Compile Include="EasyToSitDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EasyToSitDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="NexmoDotnetCodeSnippets\Authentication\BasicAuth.cs" />
     <Compile Include="NexmoDotnetCodeSnippets\Authentication\FullAuth.cs" />
     <Compile Include="Screens\CreateUser.cs">
@@ -200,6 +206,17 @@
     <EmbeddedResource Include="UpdateName.resx">
       <DependentUpon>UpdateName.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="EasyToSitDataSet.xsc">
+      <DependentUpon>EasyToSitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EasyToSitDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EasyToSitDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EasyToSitDataSet.xss">
+      <DependentUpon>EasyToSitDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

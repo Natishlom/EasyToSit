@@ -194,9 +194,11 @@ namespace EasyToSit
         //שליחת הודעת קוד לאיפוס הסיסמה
         private void btnSend_Click(object sender, EventArgs e)
         {
+            try
+            {
             GetDatabaseList();
             GetUser(txtUserName.Text);
-            if (txtUserName.Text.Length > 0)
+            if (txtUserName.Text.Length > 0|| txtUserName.Text.Equals("שם משתמש"))
             {
                 if (!txtPhone.Text.Equals("מספר נייד לאיפוס סיסמה:") && txtPhone.Text.Length.Equals(10) && txtPhone.Text.Equals(user.Phone.ToString()))
                 {
@@ -212,6 +214,12 @@ namespace EasyToSit
             }
             else
                 messageBox("נא להזין את שם המשתמש", "Error");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
 
 

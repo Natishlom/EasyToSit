@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,8 @@ namespace EasyToSit
     {
         User userName;
         List<User> listUsers;
-        private List<TextBox> sapakim = new List<TextBox>();
+        private List<TextBox> sapakimTxt = new List<TextBox>();
+        private List<Label> sapakimlbl = new List<Label>();
         public TextBox TxtDate { get => TxtDate; set => TxtDate = value; }
         public TextBox TxtNameHall { get => TxtNameHall; set => TxtNameHall = value; }
         public TextBox TxtCountOfGuest { get => TxtCountOfGuest; set => TxtCountOfGuest = value; }
@@ -34,6 +36,11 @@ namespace EasyToSit
         public TextBox TxtSpak8 { get => TxtSpak8; set => TxtSpak8 = value; }
         public TextBox TxtSpak9 { get => TxtSpak9; set => TxtSpak9 = value; }
         public TextBox TxtSpak10 { get => TxtSpak10; set => TxtSpak10 = value; }
+        List<Sapak> sapakim;
+        SqlCommand cmd;
+        SqlConnection con;
+        SqlDataAdapter da;
+        private int sapakId= 1;
 
         public Details(int id)
         {
@@ -60,26 +67,52 @@ namespace EasyToSit
         /// </summary>
         private void AddSapakim()
         {
-            this.sapakim.Add(txtLighting);
-            this.sapakim.Add(txtDesign);
-            this.sapakim.Add(txtPhotography);
-            this.sapakim.Add(txtDj);
-            this.sapakim.Add(txtBar);
-            this.sapakim.Add(txtSpak1);
-            this.sapakim.Add(txtSpak2);
-            this.sapakim.Add(txtSpak3);
-            this.sapakim.Add(txtSpak4);
-            this.sapakim.Add(txtSpak5);
-            this.sapakim.Add(txtSpak6);
-            this.sapakim.Add(txtSpak7);
-            this.sapakim.Add(txtSpak8);
-            this.sapakim.Add(txtSpak9);
-            this.sapakim.Add(txtSpak10);
+            this.sapakimTxt.Add(txtLighting);
+            this.sapakimlbl.Add(lblLighting);
+            this.sapakimTxt.Add(txtDesign);
+            this.sapakimlbl.Add(lblDesign);
+            this.sapakimTxt.Add(txtPhotography);
+            this.sapakimlbl.Add(lblPhotography);
+            this.sapakimTxt.Add(txtDj);
+            this.sapakimlbl.Add(lblDj);
+            this.sapakimTxt.Add(txtBar);
+            this.sapakimlbl.Add(lblBar);
+            this.sapakimTxt.Add(txtSpak1);
+            this.sapakimlbl.Add(lblSpak1);
+            this.sapakimTxt.Add(txtSpak2);
+            this.sapakimlbl.Add(lblSpak2);
+            this.sapakimTxt.Add(txtSpak3);
+            this.sapakimlbl.Add(lblSpak3);
+            this.sapakimTxt.Add(txtSpak4);
+            this.sapakimlbl.Add(lblSpak4);
+            this.sapakimTxt.Add(txtSpak5);
+            this.sapakimlbl.Add(lblSpak5);
+            this.sapakimTxt.Add(txtSpak6);
+            this.sapakimlbl.Add(lblSpak6);
+            this.sapakimTxt.Add(txtSpak7);
+            this.sapakimlbl.Add(lblSpak7);
+            this.sapakimTxt.Add(txtSpak8);
+            this.sapakimlbl.Add(lblSpak8);
+            this.sapakimTxt.Add(txtSpak9);
+            this.sapakimlbl.Add(lblSpak9);
+            this.sapakimTxt.Add(txtSpak10);
+            this.sapakimlbl.Add(lblSpak10);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            try { 
+            con = new SqlConnection("Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;");
+            con.Open();
+            cmd = new SqlCommand("DELETE EasySapakimData", con);
+            cmd.ExecuteNonQuery();
+                con.Close();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             textTakin();
+            sapakim = new List<Sapak>();
             txtExpenses.Text = SumOfExpenses();
             if (txtExpenses.Text.Length == 0)
                 txtExpenses.Text = "0";
@@ -93,6 +126,22 @@ namespace EasyToSit
                 lblProfitOrLoss.Text = "רווח";
             else
                 lblProfitOrLoss.Text = "רווח/הפסד";
+
+            Sapak s = new Sapak(sapakId,"מחיר מנה", Int32.Parse(txtDose.Text));
+            sapakId++;
+            sapakim.Add(s);
+            try
+            {
+            con = new SqlConnection("Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;");
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO EasySapakimData (id,name,price) VALUES ('" + s.Id + "','" + s.Name + "','" + s.Price + "')", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         #region הודעה עם ריחוף בעכבר לשינוי שם הספק
@@ -179,6 +228,7 @@ namespace EasyToSit
             {
                 l.Text = updateName.Name1.ToString();
                 t.Text = updateName.Price.ToString();
+
             }
         }
 
@@ -228,14 +278,48 @@ namespace EasyToSit
         }
         #endregion
 
+        private void CreatSapak(TextBox t)
+        {
+            Sapak sapak = new Sapak();
+            string s = t.Name.Substring(3);
+
+
+            foreach (Label lbl in sapakimlbl)
+            {
+                if (lbl.Name.Equals("lbl" + s))
+                {
+                    sapak.Name = lbl.Text;
+                    break;
+                }
+            }
+            sapak.Price = Int32.Parse(t.Text);
+            sapak.Id = sapakId;
+            sapakId++;
+            sapakim.Add(sapak);
+            try
+            {
+                con = new SqlConnection("Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;");
+                con.Open();
+                cmd = new SqlCommand("INSERT INTO EasySapakimData (id,name,price) VALUES ('" + sapak.Id + "','" + sapak.Name + "','" + sapak.Price + "')", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
         private string SumOfExpenses()
         {
             int sum;
             Tkinut(txtCountOfGuest);
             Tkinut(txtDose);
-            foreach (TextBox t in sapakim)
+            foreach (TextBox t in sapakimTxt)
             {
                 Tkinut(t);
+                CreatSapak(t);
             }
             sum = Int32.Parse(txtCountOfGuest.Text) * Int32.Parse(txtDose.Text) + Int32.Parse(txtLighting.Text) +
                 Int32.Parse(txtDesign.Text) + Int32.Parse(txtPhotography.Text) +
@@ -244,7 +328,7 @@ namespace EasyToSit
                 Int32.Parse(txtSpak7.Text) + Int32.Parse(txtSpak8.Text) + Int32.Parse(txtSpak9.Text) + Int32.Parse(txtSpak10.Text);
             ReturnMode(txtCountOfGuest);
             ReturnMode(txtDose);
-            foreach (TextBox t in sapakim)
+            foreach (TextBox t in sapakimTxt)
             {
                 ReturnMode(t);
             }
@@ -320,7 +404,7 @@ namespace EasyToSit
 
         private void txtDate_KeyDown(object sender, KeyEventArgs e)
         {
-           NextTextBox(txtNameHall, sender, e);
+            NextTextBox(txtNameHall, sender, e);
         }
 
         private void txtNameHall_KeyDown(object sender, KeyEventArgs e)
@@ -344,7 +428,7 @@ namespace EasyToSit
             {
                 if (txtExpenses.Text.Equals("0"))
                     txtExpenses.Text = "0";
-                txtExpenses.Text=(Int32.Parse(txtExpenses.Text) + Int32.Parse(t.Text)).ToString();
+                txtExpenses.Text = (Int32.Parse(txtExpenses.Text) + Int32.Parse(t.Text)).ToString();
                 t.Focus();
             }
         }
@@ -361,7 +445,7 @@ namespace EasyToSit
 
         private void txtPhotography_KeyDown(object sender, KeyEventArgs e)
         {
-            NextTextBoxAndSum(txtDj, sender, e); 
+            NextTextBoxAndSum(txtDj, sender, e);
         }
 
         private void txtDj_KeyDown(object sender, KeyEventArgs e)
@@ -431,6 +515,46 @@ namespace EasyToSit
             cboTaype.SelectedIndex = cboTaype.FindString(userName.TaypeEvent);
             txtDate.Text = userName.DateEvent.Date.ToString("MM/dd/yyyy");
             txtNameHall.Text = userName.NameHall;
+
+            sapakim = new List<Sapak>();
+            string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                con.Open();
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM EasySapakimData", con))
+                    {
+                        using (IDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                Sapak s = new Sapak();
+                                s.Id = dr.GetInt32(0);
+                                s.Name = dr.GetString(1);
+                                s.Price = dr.GetInt32(2);
+                                sapakim.Add(s);
+                            }
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                //foreach (Sapak s in sapakim)
+                //{
+                //    switch (s.Id)
+                //    {
+                //        case 1{
+
+                //            }
+                //            break;
+                //    }
+                //}
+            }
         }
     }
 }
