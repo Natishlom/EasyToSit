@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,15 +15,15 @@ namespace EasyToSit
     {
         User user;
         List<TextBox> textBoxs;
+        SqlCommand cmd;
+        SqlConnection con;
+        SqlDataAdapter da;
 
         internal User User { get => user; set => user = value; }
 
-        //קבלת מזהה היוזר
-        public CreateUser(int id)
+        public CreateUser()
         {
             InitializeComponent();
-            user = new User();
-            user.Id = id;
         }
 
         //סגירת החלון
@@ -45,20 +46,36 @@ namespace EasyToSit
             {
                 if (CheckItem())
                 {
-                    if (IsDateTime(txtDate.Text))
-                    {
                         if (IsValidEmail(txtMail.Text))
                         {
-                            user.UserName = txtUserName.Text;
-                            user.Password = txtPassword.Text;
-                            user.Phone = txtPhone.Text;
-                            user.NameHusband = txtxHusband.Text;
-                            user.NameWife = txtWife.Text;
-                            user.LaseName = txtLastName.Text;
-                            user.TaypeEvent = txtTaype.Text;
-                            user.DateEvent = DateTime.Parse(txtDate.Text);
-                            user.NameHall = txtHall.Text;
-                            user.EMail = txtMail.Text;
+                        //user.UserName = txtUserName.Text;
+                        //user.Password = txtPassword.Text;
+                        //user.Phone = txtPhone.Text;
+                        //user.NameHusband = txtxHusband.Text;
+                        //user.NameWife = txtWife.Text;
+                        //user.LaseName = txtLastName.Text;
+                        //user.TaypeEvent = txtTaype.Text;
+                        //user.DateEvent = DateTime.Parse(txtDate.Text);
+                        //user.NameHall = txtHall.Text;
+                        //user.EMail = txtMail.Text;
+                        DateTime date = new DateTime();
+                        date = DateTime.ParseExact(mskDate.Text, "dd/MM/yyyy",null);
+
+                            try
+                            {
+                                con = new SqlConnection("Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;");
+                                con.Open();
+                                cmd = new SqlCommand("INSERT INTO EasyUsersData (userName,password,phone,nameHusband,nameWife,lastName,taypeEvent,dataEvent,nameHall,eMail) VALUES ('"+txtUserName.Text+ "','" + txtPassword.Text + "','" + txtPhone.Text + "','" + txtxHusband.Text + "','" + txtWife.Text + "','" + txtLastName.Text + "','" + txtTaype.Text + "'," + "'" + date + "','" + txtHall.Text + "','" + txtMail.Text + "')", con);
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+                                MessageBox.Show("המשתמש נוסף בהצלחה", "Save",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                throw;
+                            }
                             this.Close();
                         }
                         else
@@ -66,11 +83,6 @@ namespace EasyToSit
                             new LoginPage().messageBox("המייל שהזנת אינו קיים", "Error");
                         }
                     }
-                    else
-                    {
-                        new LoginPage().messageBox("אופס, התאריך לא נרשם נכון ", "Error");
-                    }
-                }
                 else
                 {
                     new LoginPage().messageBox("אופס, סוג האירוע אינו מוגדר במערכת", "Error");
@@ -89,6 +101,8 @@ namespace EasyToSit
                     return false;
                 }
             }
+            if (!mskDate.MaskFull)
+                return false;
             return true;
         }
 
@@ -106,33 +120,6 @@ namespace EasyToSit
             }
         }
 
-        //בדיקת תקינות קלט בשדה תאריך
-        private void DatTakin()
-        {
-            try
-            {
-                //בדיקה אם הוכנס שדה תאריך
-                if (txtDate.Text.Length > 0)
-                    //בדיקת תקינות קלט עבור שדה תאריך
-                    if (!IsDateTime(txtDate.Text))
-                    {
-                        new LoginPage().messageBox("תאריך האירוע לא נשרם כראוי", "שגיאה");
-                        txtDate.SelectAll();
-                        txtDate.Focus();
-                    }
-            }
-            catch (Exception e)
-            {
-
-            }
-        }
-
-        //בדיקה האם הוזן ערך חוקי בשדה תאריך
-        public static bool IsDateTime(string txtDate)
-        {
-            DateTime tempDate;
-            return DateTime.TryParse(txtDate, out tempDate);
-        }
 
         //בדיקה האם הוזן ערך נכון בשדה סוג האירוע
         public bool CheckItem()
@@ -187,7 +174,6 @@ namespace EasyToSit
             textBoxs.Add(txtWife);
             textBoxs.Add(txtLastName);
             textBoxs.Add(txtTaype);
-            textBoxs.Add(txtDate);
             textBoxs.Add(txtHall);
             textBoxs.Add(txtMail);
         }

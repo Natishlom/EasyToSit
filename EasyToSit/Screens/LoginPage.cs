@@ -47,7 +47,7 @@ namespace EasyToSit
                 con.Open();
                 try
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM EasyUsersDB", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM EasyUsersData", con))
                     {
                         using (IDataReader dr = cmd.ExecuteReader())
                         {
@@ -116,11 +116,7 @@ namespace EasyToSit
                         this.Close();
                         if (user.UserName.Equals("Easy"))
                         {
-                            foreach (User u in listUsers)
-                            {
-                                maxId = Math.Max(maxId, u.Id);
-                            }
-                            CreateUser newUser = new CreateUser(maxId + 1);
+                            CreateUser newUser = new CreateUser();
                             newUser.Show();
                         }
                     }

@@ -61,13 +61,13 @@ namespace EasyToSit
             using (SqlConnection con = new SqlConnection(conString))
             {
                 con.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM Guests", con);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM EasyGuests", con);
                 DataTable dtbl = new DataTable();
                 sqlDa.Fill(dtbl);
 
                 dataGuests.DataSource = dtbl;
 
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Guests", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM EasyGuests", con))
                 {
                     using (IDataReader dr = cmd.ExecuteReader())
                     {

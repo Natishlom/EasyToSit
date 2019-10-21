@@ -39,12 +39,12 @@
             this.txtTaype = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtHall = new System.Windows.Forms.TextBox();
-            this.txtDate = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtWife = new System.Windows.Forms.TextBox();
             this.txtxHusband = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.mskDate = new System.Windows.Forms.MaskedTextBox();
             this.panelTitle.SuspendLayout();
             this.panelSave.SuspendLayout();
             this.panelBody.SuspendLayout();
@@ -145,13 +145,13 @@
             this.tableLayoutPanel1.Controls.Add(this.txtTaype, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.txtMail, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.txtHall, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.txtDate, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.txtLastName, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtWife, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtxHusband, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtPhone, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtPassword, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtUserName, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.mskDate, 0, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -166,6 +166,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(270, 418);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -212,21 +213,6 @@
             this.txtHall.Text = "שם האולם:";
             this.txtHall.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtHall.Click += new System.EventHandler(this.txtUserName_Click);
-            // 
-            // txtDate
-            // 
-            this.txtDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDate.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtDate.ForeColor = System.Drawing.Color.Silver;
-            this.txtDate.Location = new System.Drawing.Point(3, 290);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDate.Size = new System.Drawing.Size(264, 29);
-            this.txtDate.TabIndex = 8;
-            this.txtDate.Tag = "Date";
-            this.txtDate.Text = "תאריך האירוע:";
-            this.txtDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDate.Click += new System.EventHandler(this.txtUserName_Click);
             // 
             // txtLastName
             // 
@@ -298,6 +284,20 @@
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPassword.Click += new System.EventHandler(this.txtUserName_Click);
             // 
+            // mskDate
+            // 
+            this.mskDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mskDate.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.mskDate.ForeColor = System.Drawing.Color.Silver;
+            this.mskDate.Location = new System.Drawing.Point(3, 290);
+            this.mskDate.Mask = "00/00/0000";
+            this.mskDate.Name = "mskDate";
+            this.mskDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mskDate.Size = new System.Drawing.Size(264, 29);
+            this.mskDate.TabIndex = 8;
+            this.mskDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskDate.ValidatingType = typeof(System.DateTime);
+            // 
             // CreateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,7 +339,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtHall;
-        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtWife;
         private System.Windows.Forms.TextBox txtxHusband;
@@ -347,5 +346,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtTaype;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.MaskedTextBox mskDate;
     }
 }
