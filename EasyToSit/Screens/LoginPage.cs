@@ -18,6 +18,11 @@ namespace EasyToSit
 {
     public partial class LoginPage : Form
     {
+        public LoginPage()
+        {
+            InitializeComponent();
+            panelBody.Show();
+        }
 
         public string path = System.Windows.Forms.Application.StartupPath;
         private string phone;
@@ -25,17 +30,14 @@ namespace EasyToSit
         List<User> listUsers;
         User user;
 
+
         public string Phone { get => phone; set => phone = value; }
         public int KodeReastart { get => kodeReastart; set => kodeReastart = value; }
         internal List<User> ListUsers { get => listUsers; set => listUsers = value; }
         internal User User { get => user; set => user = value; }
 
-        public LoginPage()
-        {
-            InitializeComponent();
-            panelBody.Show();
-        }
 
+        //שליפת יוזרים מהדתא בייס
         public void GetDatabaseList()
         {
             listUsers = new List<User>();
@@ -43,32 +45,39 @@ namespace EasyToSit
             using (SqlConnection con = new SqlConnection(conString))
             {
                 con.Open();
-
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM EasyUsersDB", con))
+                try
                 {
-                    using (IDataReader dr = cmd.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM EasyUsersDB", con))
                     {
-                        while (dr.Read())
+                        using (IDataReader dr = cmd.ExecuteReader())
                         {
-                            User user = new User();
-                            user.Id = dr.GetInt32(0);
-                            user.UserName = dr.GetString(1);
-                            user.Password = dr.GetString(2);
-                            user.Phone = dr.GetString(3);
-                            user.NameHusband = dr.GetString(4);
-                            user.NameWife = dr.GetString(5);
-                            user.LaseName = dr.GetString(6);
-                            user.TaypeEvent = dr.GetString(7);
-                            user.DateEvent = dr.GetDateTime(8);
-                            user.NameHall = dr.GetString(9);
-                            user.EMail = dr.GetString(10);
-                            listUsers.Add(user);
+                            while (dr.Read())
+                            {
+                                User user = new User();
+                                user.Id = dr.GetInt32(0);
+                                user.UserName = dr.GetString(1);
+                                user.Password = dr.GetString(2);
+                                user.Phone = dr.GetString(3);
+                                user.NameHusband = dr.GetString(4);
+                                user.NameWife = dr.GetString(5);
+                                user.LaseName = dr.GetString(6);
+                                user.TaypeEvent = dr.GetString(7);
+                                user.DateEvent = dr.GetDateTime(8);
+                                user.NameHall = dr.GetString(9);
+                                user.EMail = dr.GetString(10);
+                                listUsers.Add(user);
+                            }
                         }
                     }
+                }
+                catch (Exception e)
+                {
+                    messageBox(e.Message + "", "");
                 }
             }
         }
 
+        //קיבוע היוזר שהתחבר
         public void GetUser(string userName)
         {
             foreach (User user in listUsers)
@@ -78,7 +87,7 @@ namespace EasyToSit
             }
         }
 
-
+        //במעבר ע"י לחיצה על הנטר שדה טקסט בוקס התווים שבו יהפכו לסיסמה
         private void txtUserName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
@@ -86,9 +95,12 @@ namespace EasyToSit
                 txtPass.Text = "";
                 //txtPass.UseSystemPasswordChar = true;
                 txtPass.Focus();
+                txtPass.Clear();
+                txtPass.UseSystemPasswordChar = true;
             }
         }
 
+        //לחיצה על חיבור 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             GetDatabaseList();
@@ -122,6 +134,7 @@ namespace EasyToSit
                 messageBox("שם המשתמש אינו תקין", "שגיאה");
         }
 
+        //מעבר ע"י לחיצה על הנטר לכפתור התחברות
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -129,6 +142,7 @@ namespace EasyToSit
                 btnLogin.Focus();
             }
         }
+
 
         private void txtPass_Click(object sender, EventArgs e)
         {
@@ -159,6 +173,7 @@ namespace EasyToSit
         }
         #endregion
 
+        //בלחיצה על שגכחתי סיסמה יפתח חלון לשחזור נתונים ויצירת סיסמה חדשה
         private void btnForgotPass_Click(object sender, EventArgs e)
         {
             panelBody.Hide();
@@ -174,13 +189,13 @@ namespace EasyToSit
             btnSavePass.Hide();
         }
 
+        //בטעינת העמוד יוצג הפאנל הראשי של ההתחברות
         private void LoginPage_Load(object sender, EventArgs e)
         {
             panelForgot.Hide();
-
-
         }
 
+        //שליחת הודעת קוד לאיפוס הסיסמה
         private void btnSend_Click(object sender, EventArgs e)
         {
             GetDatabaseList();
@@ -203,34 +218,27 @@ namespace EasyToSit
                 messageBox("נא להזין את שם המשתמש", "Error");
         }
 
+
+        //סימון הטקסט
         private void txtPhone_Click(object sender, EventArgs e)
         {
             selectText(txtPhone);
         }
 
+        //יצירת סיסמה המורכבת מחיבור ה-4 ספרות הראשונות עם 3 אחריהן + השלוש שאחריהן 
+        //לדוג: 0526647172 - 0526+647+712=1885
         private void SendRestartPassword()
         {
             phone = txtPhone.Text;
-            CreateKode();
+            string temp = phone.Substring(0, 4);
+            kodeReastart = Int32.Parse(temp);
+            temp = phone.Substring(4, 3);
+            kodeReastart += Int32.Parse(temp);
+            temp = phone.Substring(7);
+            kodeReastart += Int32.Parse(temp);
         }
 
-        public void CreateKode()
-        {
-            try
-            {
-                string temp = phone.Substring(0, 4);
-                kodeReastart = Int32.Parse(temp);
-                temp = phone.Substring(4, 3);
-                kodeReastart += Int32.Parse(temp);
-                temp = phone.Substring(7);
-                kodeReastart += Int32.Parse(temp);
-            }
-            catch (Exception e)
-            {
-
-            }
-        }
-
+        //מתודה לסימון הטקסט בטקסט בוקס
         public void selectText(TextBox t)
         {
             t.SelectAll();
@@ -241,7 +249,7 @@ namespace EasyToSit
             selectText(txtPasswordForgot);
         }
 
-
+        //בדיקה האם הקוד שנשלח זהה לקוד שנוצר
         private void btnChangePass_Click(object sender, EventArgs e)
         {
             if (txtPasswordForgot.Text.Equals(kodeReastart.ToString()))
@@ -258,6 +266,7 @@ namespace EasyToSit
             }
         }
 
+        //אחרי יצירת הסיסמה החדשה איפוס פנל המשני והצגת הפאנל הראשי
         private void btnSavePass_Click(object sender, EventArgs e)
         {
             if (txtNewPass.Text.Equals(txtNewPassAgian.Text))
@@ -282,6 +291,7 @@ namespace EasyToSit
             }
         }
 
+        //
         private void txtNewPass_Click(object sender, EventArgs e)
         {
             if (txtNewPass.Text.Equals("הזן סיסמה חדשה:"))
@@ -299,6 +309,7 @@ namespace EasyToSit
                 txtNewPass.SelectAll();
         }
 
+        //
         private void txtNewPassAgian_Click(object sender, EventArgs e)
         {
             if (txtNewPassAgian.Text.Equals("הזן סיסמה חדשה שוב:"))
@@ -315,6 +326,16 @@ namespace EasyToSit
             else
                 txtNewPassAgian.SelectAll();
 
+        }
+
+        //
+        private void txtPass_Leave(object sender, EventArgs e)
+        {
+            if (txtPass.Text.Equals(""))
+            {
+                txtPass.UseSystemPasswordChar = false;
+                txtPass.Text = "סיסמה";
+            }
         }
     }
 }

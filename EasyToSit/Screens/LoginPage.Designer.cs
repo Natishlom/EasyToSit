@@ -88,7 +88,9 @@
             this.txtPass.TabIndex = 2;
             this.txtPass.Text = "סיסמה";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPass.Click += new System.EventHandler(this.txtPass_Click);
             this.txtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass_KeyDown);
+            this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
             // 
             // btnForgotPass
             // 
@@ -154,9 +156,9 @@
             this.panelForgot.Controls.Add(this.txtPasswordForgot);
             this.panelForgot.Controls.Add(this.txtPhone);
             this.panelForgot.Controls.Add(this.lblFogot);
-            this.panelForgot.Location = new System.Drawing.Point(32, 134);
+            this.panelForgot.Location = new System.Drawing.Point(32, 131);
             this.panelForgot.Name = "panelForgot";
-            this.panelForgot.Size = new System.Drawing.Size(721, 322);
+            this.panelForgot.Size = new System.Drawing.Size(731, 325);
             this.panelForgot.TabIndex = 9;
             // 
             // btnSend

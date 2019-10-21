@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using System.Data;
 using System.Data.SqlClient;
 using EasyToSit.Classes;
 
@@ -17,14 +16,14 @@ namespace EasyToSit
     public partial class Guests : Form
     {
         private List<Guest> guestsList = new List<Guest>();
-        private bool newRowNeeded;
+        private bool newrowNeeded;
         Guest guest;
         public Guests()
         {
             InitializeComponent();
         }
 
-        public bool NewRowNeeded { get => newRowNeeded; set => newRowNeeded = value; }
+        public bool NewRowNeeded { get => newrowNeeded; set => newrowNeeded = value; }
 
         private void dataGuests_CellClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -32,19 +32,19 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panelTitle = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.panelSave = new System.Windows.Forms.Panel();
             this.panelBody = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtxHusband = new System.Windows.Forms.TextBox();
-            this.txtWife = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtDate = new System.Windows.Forms.TextBox();
-            this.txtHall = new System.Windows.Forms.TextBox();
-            this.txtMail = new System.Windows.Forms.TextBox();
             this.txtTaype = new System.Windows.Forms.TextBox();
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtHall = new System.Windows.Forms.TextBox();
+            this.txtDate = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtWife = new System.Windows.Forms.TextBox();
+            this.txtxHusband = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.panelTitle.SuspendLayout();
             this.panelSave.SuspendLayout();
             this.panelBody.SuspendLayout();
@@ -106,6 +106,19 @@
             this.panelTitle.TabIndex = 0;
             this.panelTitle.TabStop = true;
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lblTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTitle.Location = new System.Drawing.Point(68, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblTitle.Size = new System.Drawing.Size(135, 18);
+            this.lblTitle.TabIndex = 2;
+            this.lblTitle.Text = "יצירת משתמש חדש:";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panelSave
             // 
             this.panelSave.Controls.Add(this.btnUpdate);
@@ -156,104 +169,20 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(270, 418);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // txtPassword
+            // txtTaype
             // 
-            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPassword.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtPassword.ForeColor = System.Drawing.Color.Silver;
-            this.txtPassword.Location = new System.Drawing.Point(3, 44);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPassword.Size = new System.Drawing.Size(264, 29);
-            this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "סיסמה:";
-            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPassword.Click += new System.EventHandler(this.txtUserName_Click);
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPhone.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtPhone.ForeColor = System.Drawing.Color.Silver;
-            this.txtPhone.Location = new System.Drawing.Point(3, 85);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPhone.Size = new System.Drawing.Size(264, 29);
-            this.txtPhone.TabIndex = 3;
-            this.txtPhone.Text = "מספר נייד:";
-            this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPhone.Click += new System.EventHandler(this.txtUserName_Click);
-            // 
-            // txtxHusband
-            // 
-            this.txtxHusband.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtxHusband.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtxHusband.ForeColor = System.Drawing.Color.Silver;
-            this.txtxHusband.Location = new System.Drawing.Point(3, 126);
-            this.txtxHusband.Name = "txtxHusband";
-            this.txtxHusband.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtxHusband.Size = new System.Drawing.Size(264, 29);
-            this.txtxHusband.TabIndex = 4;
-            this.txtxHusband.Text = "שם החתן:";
-            this.txtxHusband.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtxHusband.Click += new System.EventHandler(this.txtUserName_Click);
-            // 
-            // txtWife
-            // 
-            this.txtWife.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtWife.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtWife.ForeColor = System.Drawing.Color.Silver;
-            this.txtWife.Location = new System.Drawing.Point(3, 167);
-            this.txtWife.Name = "txtWife";
-            this.txtWife.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtWife.Size = new System.Drawing.Size(264, 29);
-            this.txtWife.TabIndex = 5;
-            this.txtWife.Text = "שם הכלה:";
-            this.txtWife.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtWife.Click += new System.EventHandler(this.txtUserName_Click);
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLastName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtLastName.ForeColor = System.Drawing.Color.Silver;
-            this.txtLastName.Location = new System.Drawing.Point(3, 208);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtLastName.Size = new System.Drawing.Size(264, 29);
-            this.txtLastName.TabIndex = 6;
-            this.txtLastName.Text = "שם משפחה:";
-            this.txtLastName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtLastName.Click += new System.EventHandler(this.txtUserName_Click);
-            // 
-            // txtDate
-            // 
-            this.txtDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDate.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtDate.ForeColor = System.Drawing.Color.Silver;
-            this.txtDate.Location = new System.Drawing.Point(3, 290);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDate.Size = new System.Drawing.Size(264, 29);
-            this.txtDate.TabIndex = 8;
-            this.txtDate.Tag = "Date";
-            this.txtDate.Text = "תאריך האירוע:";
-            this.txtDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDate.Click += new System.EventHandler(this.txtUserName_Click);
-            // 
-            // txtHall
-            // 
-            this.txtHall.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHall.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtHall.ForeColor = System.Drawing.Color.Silver;
-            this.txtHall.Location = new System.Drawing.Point(3, 331);
-            this.txtHall.Name = "txtHall";
-            this.txtHall.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtHall.Size = new System.Drawing.Size(264, 29);
-            this.txtHall.TabIndex = 9;
-            this.txtHall.Text = "שם האולם:";
-            this.txtHall.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtHall.Click += new System.EventHandler(this.txtUserName_Click);
+            this.txtTaype.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTaype.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtTaype.ForeColor = System.Drawing.Color.Silver;
+            this.txtTaype.Location = new System.Drawing.Point(3, 249);
+            this.txtTaype.Name = "txtTaype";
+            this.txtTaype.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTaype.Size = new System.Drawing.Size(264, 29);
+            this.txtTaype.TabIndex = 7;
+            this.txtTaype.Tag = "Taype";
+            this.txtTaype.Text = "סוג האירוע:";
+            this.txtTaype.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTaype.Click += new System.EventHandler(this.txtUserName_Click);
             // 
             // txtMail
             // 
@@ -270,33 +199,104 @@
             this.txtMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMail.Click += new System.EventHandler(this.txtUserName_Click);
             // 
-            // txtTaype
+            // txtHall
             // 
-            this.txtTaype.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTaype.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtTaype.ForeColor = System.Drawing.Color.Silver;
-            this.txtTaype.Location = new System.Drawing.Point(3, 249);
-            this.txtTaype.Name = "txtTaype";
-            this.txtTaype.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTaype.Size = new System.Drawing.Size(264, 29);
-            this.txtTaype.TabIndex = 7;
-            this.txtTaype.Tag = "Taype";
-            this.txtTaype.Text = "סוג האירוע:";
-            this.txtTaype.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTaype.Click += new System.EventHandler(this.txtUserName_Click);
+            this.txtHall.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtHall.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtHall.ForeColor = System.Drawing.Color.Silver;
+            this.txtHall.Location = new System.Drawing.Point(3, 331);
+            this.txtHall.Name = "txtHall";
+            this.txtHall.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtHall.Size = new System.Drawing.Size(264, 29);
+            this.txtHall.TabIndex = 9;
+            this.txtHall.Text = "שם האולם:";
+            this.txtHall.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtHall.Click += new System.EventHandler(this.txtUserName_Click);
             // 
-            // lblTitle
+            // txtDate
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTitle.Location = new System.Drawing.Point(68, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblTitle.Size = new System.Drawing.Size(135, 18);
-            this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "יצירת משתמש חדש:";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDate.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtDate.ForeColor = System.Drawing.Color.Silver;
+            this.txtDate.Location = new System.Drawing.Point(3, 290);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtDate.Size = new System.Drawing.Size(264, 29);
+            this.txtDate.TabIndex = 8;
+            this.txtDate.Tag = "Date";
+            this.txtDate.Text = "תאריך האירוע:";
+            this.txtDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDate.Click += new System.EventHandler(this.txtUserName_Click);
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLastName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtLastName.ForeColor = System.Drawing.Color.Silver;
+            this.txtLastName.Location = new System.Drawing.Point(3, 208);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtLastName.Size = new System.Drawing.Size(264, 29);
+            this.txtLastName.TabIndex = 6;
+            this.txtLastName.Text = "שם משפחה:";
+            this.txtLastName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtLastName.Click += new System.EventHandler(this.txtUserName_Click);
+            // 
+            // txtWife
+            // 
+            this.txtWife.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtWife.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtWife.ForeColor = System.Drawing.Color.Silver;
+            this.txtWife.Location = new System.Drawing.Point(3, 167);
+            this.txtWife.Name = "txtWife";
+            this.txtWife.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtWife.Size = new System.Drawing.Size(264, 29);
+            this.txtWife.TabIndex = 5;
+            this.txtWife.Text = "שם הכלה:";
+            this.txtWife.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtWife.Click += new System.EventHandler(this.txtUserName_Click);
+            // 
+            // txtxHusband
+            // 
+            this.txtxHusband.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtxHusband.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtxHusband.ForeColor = System.Drawing.Color.Silver;
+            this.txtxHusband.Location = new System.Drawing.Point(3, 126);
+            this.txtxHusband.Name = "txtxHusband";
+            this.txtxHusband.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtxHusband.Size = new System.Drawing.Size(264, 29);
+            this.txtxHusband.TabIndex = 4;
+            this.txtxHusband.Text = "שם החתן:";
+            this.txtxHusband.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtxHusband.Click += new System.EventHandler(this.txtUserName_Click);
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPhone.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtPhone.ForeColor = System.Drawing.Color.Silver;
+            this.txtPhone.Location = new System.Drawing.Point(3, 85);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPhone.Size = new System.Drawing.Size(264, 29);
+            this.txtPhone.TabIndex = 3;
+            this.txtPhone.Text = "מספר נייד:";
+            this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPhone.Click += new System.EventHandler(this.txtUserName_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPassword.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtPassword.ForeColor = System.Drawing.Color.Silver;
+            this.txtPassword.Location = new System.Drawing.Point(3, 44);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPassword.Size = new System.Drawing.Size(264, 29);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.Text = "סיסמה:";
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPassword.Click += new System.EventHandler(this.txtUserName_Click);
             // 
             // CreateUser
             // 

@@ -17,6 +17,7 @@ namespace EasyToSit
 
         internal User User { get => user; set => user = value; }
 
+        //קבלת מזהה היוזר
         public CreateUser(int id)
         {
             InitializeComponent();
@@ -24,18 +25,20 @@ namespace EasyToSit
             user.Id = id;
         }
 
-
+        //סגירת החלון
         private void lblExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //סימון הטקסט
         private void txtUserName_Click(object sender, EventArgs e)
         {
             TextBox t = (TextBox)sender;
             t.SelectAll();
         }
 
+        //בדיקות ועדכון הפרטים
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (ITextBoxOk())
@@ -75,19 +78,21 @@ namespace EasyToSit
             }
         }
 
+        //מתן הודעת שגיאה בעט הצורך באיזה טקסט בוקסים לא הוזן ערך
         public bool ITextBoxOk()
         {
             foreach (TextBox t in textBoxs)
             {
                 if (!IsValue(t))
                 {
-                    new LoginPage().messageBox("בשדה: " + t.Name.ToString() + "לא הוזן ערך", "Error");
+                    new LoginPage().messageBox("בשדה: " + t.Name.ToString() + "לא הוזן ערך"+Environment.NewLine, "Error");
                     return false;
                 }
             }
             return true;
         }
 
+        //בדיקת תקינות קלט של האימייל
         public bool IsValidEmail(string email)
         {
             try
@@ -101,6 +106,7 @@ namespace EasyToSit
             }
         }
 
+        //בדיקת תקינות קלט בשדה תאריך
         private void DatTakin()
         {
             try
@@ -114,20 +120,21 @@ namespace EasyToSit
                         txtDate.SelectAll();
                         txtDate.Focus();
                     }
-
-
             }
             catch (Exception e)
             {
 
             }
         }
+
+        //בדיקה האם הוזן ערך חוקי בשדה תאריך
         public static bool IsDateTime(string txtDate)
         {
             DateTime tempDate;
             return DateTime.TryParse(txtDate, out tempDate);
         }
 
+        //בדיקה האם הוזן ערך נכון בשדה סוג האירוע
         public bool CheckItem()
         {
             switch (txtTaype.Text)
@@ -160,6 +167,7 @@ namespace EasyToSit
             }
         }
 
+        //בדיקה האם הוזן ערך בטקסט בוקס
         private bool IsValue(TextBox t)
         {
             if (t.Text.Length > 0)
@@ -168,6 +176,7 @@ namespace EasyToSit
                 return false;
         }
 
+        //הוספת כל הטקסטבוקסים לרשימה 
         private void CreateUser_Load(object sender, EventArgs e)
         {
             textBoxs = new List<TextBox>();
