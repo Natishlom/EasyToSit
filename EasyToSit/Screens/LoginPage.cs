@@ -92,11 +92,9 @@ namespace EasyToSit
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
-                txtPass.Text = "";
-                //txtPass.UseSystemPasswordChar = true;
+                txtPass.UseSystemPasswordChar = true;
                 txtPass.Focus();
                 txtPass.Clear();
-                txtPass.UseSystemPasswordChar = true;
             }
         }
 
@@ -144,15 +142,15 @@ namespace EasyToSit
         {
             if (txtPass.Text == "סיסמה")
             {
-                txtPass.Text = "";
                 txtPass.UseSystemPasswordChar = true;
+                txtPass.Text = "";
 
             }
             else
             if (txtPass.Text == "")
             {
-                txtPass.Text = "סיסמה";
                 txtPass.UseSystemPasswordChar = false;
+                txtPass.Text = "סיסמה";
 
             }
         }

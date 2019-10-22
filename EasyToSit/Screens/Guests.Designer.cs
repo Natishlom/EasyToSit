@@ -38,14 +38,14 @@
             this.panelSave = new System.Windows.Forms.Panel();
             this.txtCount = new System.Windows.Forms.TextBox();
             this.lblCount = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.rowNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FristName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chekHazmna = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.CheckHzmana = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isComing = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Gift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delet = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -93,7 +93,7 @@
             this.lastName,
             this.count,
             this.phone,
-            this.chekHazmna,
+            this.CheckHzmana,
             this.isComing,
             this.Gift,
             this.delet});
@@ -128,7 +128,7 @@
             this.dataGuests.Size = new System.Drawing.Size(796, 461);
             this.dataGuests.TabIndex = 0;
             this.dataGuests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGuests_CellClick);
-            this.dataGuests.NewRowNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGuests_NewRowNeeded);
+            this.dataGuests.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGuests_RowPostPaint);
             this.dataGuests.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGuests_RowsAdded);
             // 
             // panelSave
@@ -170,20 +170,6 @@
             this.lblCount.TabIndex = 0;
             this.lblCount.Text = "כמות אורחים:";
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(63)))), ((int)(((byte)(115)))));
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdate.Location = new System.Drawing.Point(105, 5);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnUpdate.Size = new System.Drawing.Size(98, 35);
-            this.btnUpdate.TabIndex = 24;
-            this.btnUpdate.Text = "עדכן";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(63)))), ((int)(((byte)(115)))));
@@ -197,6 +183,21 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "שמור";
             this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(63)))), ((int)(((byte)(115)))));
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUpdate.Location = new System.Drawing.Point(105, 5);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnUpdate.Size = new System.Drawing.Size(98, 35);
+            this.btnUpdate.TabIndex = 24;
+            this.btnUpdate.Text = "עדכן";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // rowNumber
             // 
@@ -226,27 +227,29 @@
             // 
             // phone
             // 
-            this.phone.DataPropertyName = "PhoneNumber";
+            this.phone.DataPropertyName = "GuestPhone";
             this.phone.HeaderText = "מספר נייד:";
             this.phone.Name = "phone";
             // 
-            // chekHazmna
+            // CheckHzmana
             // 
-            this.chekHazmna.DataPropertyName = "ChekHazmna";
-            this.chekHazmna.FalseValue = "0";
-            this.chekHazmna.FillWeight = 35F;
-            this.chekHazmna.HeaderText = "קיבל הזמנה:";
-            this.chekHazmna.Name = "chekHazmna";
-            this.chekHazmna.TrueValue = "1";
+            this.CheckHzmana.DataPropertyName = "CheckHzmana";
+            this.CheckHzmana.FalseValue = "false";
+            this.CheckHzmana.FillWeight = 35F;
+            this.CheckHzmana.HeaderText = "קיבל הזמנה:";
+            this.CheckHzmana.IndeterminateValue = "false";
+            this.CheckHzmana.Name = "CheckHzmana";
+            this.CheckHzmana.TrueValue = "true";
             // 
             // isComing
             // 
             this.isComing.DataPropertyName = "IsComing";
-            this.isComing.FalseValue = "0";
+            this.isComing.FalseValue = "false";
             this.isComing.FillWeight = 35F;
             this.isComing.HeaderText = "אישר הגעה";
+            this.isComing.IndeterminateValue = "false";
             this.isComing.Name = "isComing";
-            this.isComing.TrueValue = "1";
+            this.isComing.TrueValue = "true";
             // 
             // Gift
             // 
@@ -294,15 +297,15 @@
         private System.Windows.Forms.Panel panelSave;
         private System.Windows.Forms.DataGridView dataGuests;
         private System.Windows.Forms.Label lblCount;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtCount;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn FristName;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn count;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn chekHazmna;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CheckHzmana;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isComing;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gift;
         private System.Windows.Forms.DataGridViewButtonColumn delet;

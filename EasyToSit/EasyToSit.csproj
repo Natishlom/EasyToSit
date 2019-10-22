@@ -232,55 +232,43 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\EasyToSit.png" />
+    <EmbeddedResource Include="Resources\EasyToSit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\EasyToSit1.png" />
+    <EmbeddedResource Include="Resources\EasyToSit1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu.png" />
+    <EmbeddedResource Include="Resources\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu1.png" />
+    <EmbeddedResource Include="Resources\menu1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu2.png" />
+    <EmbeddedResource Include="Resources\menu2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu3.png" />
+    <EmbeddedResource Include="Resources\menu3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\table.png" />
+    <EmbeddedResource Include="Resources\table.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bar.jpg" />
+    <EmbeddedResource Include="Resources\bar.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\danceFloor.png" />
+    <EmbeddedResource Include="Resources\danceFloor.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\door.png" />
+    <EmbeddedResource Include="Resources\door.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\kitchen.png" />
+    <EmbeddedResource Include="Resources\kitchen.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stage.png" />
+    <EmbeddedResource Include="Resources\stage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Invitation.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reminderComing.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ReminderToSit.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Thanks.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WeddingReminder.jpeg" />
+    <EmbeddedResource Include="Resources\Invitation.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

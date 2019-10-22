@@ -18,24 +18,6 @@ namespace EasyToSit
         List<User> listUsers;
         private List<TextBox> sapakimTxt = new List<TextBox>();
         private List<Label> sapakimlbl = new List<Label>();
-        public TextBox TxtDate { get => TxtDate; set => TxtDate = value; }
-        public TextBox TxtNameHall { get => TxtNameHall; set => TxtNameHall = value; }
-        public TextBox TxtCountOfGuest { get => TxtCountOfGuest; set => TxtCountOfGuest = value; }
-        public TextBox TxtDose { get => TxtDose; set => TxtDose = value; }
-        public TextBox TxtLighting { get => TxtLighting; set => TxtLighting = value; }
-        public TextBox TxtDesign { get => TxtDesign; set => TxtDesign = value; }
-        public TextBox TxtDj { get => TxtDj; set => TxtDj = value; }
-        public TextBox TxtBar { get => TxtBar; set => TxtBar = value; }
-        public TextBox TxtSpak1 { get => TxtSpak1; set => TxtSpak1 = value; }
-        public TextBox TxtSpak2 { get => TxtSpak2; set => TxtSpak2 = value; }
-        public TextBox TxtSpak3 { get => TxtSpak3; set => TxtSpak3 = value; }
-        public TextBox TxtSpak4 { get => TxtSpak4; set => TxtSpak4 = value; }
-        public TextBox TxtSpak5 { get => TxtSpak5; set => TxtSpak5 = value; }
-        public TextBox TxtSpak6 { get => TxtSpak6; set => TxtSpak6 = value; }
-        public TextBox TxtSpak7 { get => TxtSpak7; set => TxtSpak7 = value; }
-        public TextBox TxtSpak8 { get => TxtSpak8; set => TxtSpak8 = value; }
-        public TextBox TxtSpak9 { get => TxtSpak9; set => TxtSpak9 = value; }
-        public TextBox TxtSpak10 { get => TxtSpak10; set => TxtSpak10 = value; }
         List<Sapak> sapakim;
         SqlCommand cmd;
         SqlConnection con;
@@ -126,8 +108,13 @@ namespace EasyToSit
                 lblProfitOrLoss.Text = "רווח";
             else
                 lblProfitOrLoss.Text = "רווח/הפסד";
+            int price;
+            if (txtDose.Text.Equals(""))
+                price = 0;
+                    else
+                price = Int32.Parse(txtDose.Text);
 
-            Sapak s = new Sapak(sapakId,"מחיר מנה", Int32.Parse(txtDose.Text));
+            Sapak s = new Sapak(sapakId,"מחיר מנה",price);
             sapakId++;
             sapakim.Add(s);
             try
@@ -509,15 +496,26 @@ namespace EasyToSit
         }
         #endregion
 
+        private string returnNumber(int price)
+        {
+            if (price.Equals(0))
+                return "";
+            else
+                return price.ToString();
+        }
+
         private void Details_Load(object sender, EventArgs e)
         {
+            string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+            int guset=0, gifts = 0;
+            string countGuest,strGift;
+
+           
             txtUserName.Text = userName.NameHusband + " ו" + userName.NameWife + " " + userName.LaseName;
             cboTaype.SelectedIndex = cboTaype.FindString(userName.TaypeEvent);
             txtDate.Text = userName.DateEvent.Date.ToString("MM/dd/yyyy");
             txtNameHall.Text = userName.NameHall;
-
             sapakim = new List<Sapak>();
-            string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
             using (SqlConnection con = new SqlConnection(conString))
             {
                 con.Open();
@@ -536,24 +534,135 @@ namespace EasyToSit
                                 sapakim.Add(s);
                             }
                         }
-                    }
 
+                        
+                        try
+                        {
+                        SqlCommand cm = new SqlCommand("SELECT Count,Gift FROM EasyGusetData", con);
+                        IDataReader rd = cm.ExecuteReader();
+                        while (rd.Read())
+                            {
+                            guset += rd.GetInt32(0);
+                                gifts += rd.GetInt32(1);
+                            }
+                                countGuest = returnNumber(guset);
+                            strGift = returnNumber(gifts);
+
+                            txtRevenue.Text = strGift;
+                        txtCountOfGuest.Text = countGuest;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message + Environment.NewLine + "לא הוכנסו במסך קליטת אורחים נתונים.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            throw;
+                        }
+                    }
+                    con.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                //foreach (Sapak s in sapakim)
-                //{
-                //    switch (s.Id)
-                //    {
-                //        case 1{
+                foreach (Sapak s in sapakim)
+                {
+                    switch (s.Id)
+                    {
+                        case 1:
+                            {
+                                txtLighting.Text = returnNumber(s.Price);
+                            }
+                            break;
+                            case 2:
+                            {
+                                txtDesign.Text= returnNumber(s.Price);
+                            }
+                            break;
+                        case 3:
+                            {
+                                txtPhotography.Text = returnNumber(s.Price);
+                            }
+                            break;
+                        case 4:
+                            {
+                                txtDj.Text = returnNumber(s.Price);
+                            }
+                            break;
+                        case 5:
+                            {
+                                txtBar.Text = returnNumber(s.Price);
+                            }
+                            break;
+                        case 6:
+                            {
+                                txtSpak1.Text = returnNumber(s.Price);
+                                lblSpak1.Text = s.Name;
+                            }
+                            break;
+                        case 7:
+                            {
+                                txtSpak2.Text = returnNumber(s.Price);
+                                lblSpak2.Text = s.Name;
+                            }
+                            break;
+                        case 8:
+                            {
+                                txtSpak3.Text = returnNumber(s.Price);
+                                lblSpak3.Text = s.Name;
+                            }
+                            break;
+                        case 9:
+                            {
+                                txtSpak4.Text = returnNumber(s.Price);
+                                lblSpak4.Text = s.Name;
+                            }
+                            break;
+                        case 10:
+                            {
+                                txtSpak5.Text = returnNumber(s.Price);
+                                lblSpak5.Text = s.Name;
+                            }
+                            break;
+                        case 11:
+                            {
+                                txtSpak6.Text = returnNumber(s.Price);
+                                lblSpak6.Text = s.Name;
+                            }
+                            break;
+                        case 12:
+                            {
+                                txtSpak7.Text = returnNumber(s.Price);
+                                lblSpak7.Text = s.Name;
+                            }
+                            break;
+                        case 13:
+                            {
+                                txtSpak8.Text = returnNumber(s.Price);
+                                lblSpak8.Text = s.Name;
+                            }
+                            break;
+                        case 14:
+                            {
+                                txtSpak9.Text = returnNumber(s.Price);
+                                lblSpak9.Text = s.Name;
+                            }
+                            break;
+                        case 15:
+                            {
+                                txtSpak10.Text = returnNumber(s.Price);
+                                lblSpak10.Text = s.Name;
+                            }
+                            break;
+                        case 16:
+                            {
+                                txtDose.Text = returnNumber(s.Price);
+                            }
+                            break;
+                        default: continue;
+                    }
+                }
 
-                //            }
-                //            break;
-                //    }
-                //}
+                
             }
         }
     }

@@ -18,6 +18,7 @@ namespace EasyToSit
         private List<Guest> guestsList = new List<Guest>();
         private bool newrowNeeded;
         Guest guest;
+        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
         public Guests()
         {
             InitializeComponent();
@@ -25,49 +26,32 @@ namespace EasyToSit
 
         public bool NewRowNeeded { get => newrowNeeded; set => newrowNeeded = value; }
 
-        private void dataGuests_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGuests_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
-        {
-        }
 
         private void dataGuests_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             NewRowNeeded = true;
             if (NewRowNeeded)
             {
-                Guest guest = new Guest();
+                guest = new Guest();
                 NewRowNeeded = false;
-                int maxValue = 0;
-                foreach (Guest g in guestsList)
-                {
-                    maxValue = Math.Max(maxValue, g.GuestId);
-                }
-                //int col = dataGuests.Columns["rowNumber"].Index;
-                //int row = dataGuests.RowCount - 1;
-                //int num = maxValue + 1;
-                //dataGuests.Rows[dataGuests.RowCount-1].Cells[8].Value = num;
             }
-            txtCount.Text = dataGuests.Rows.Count + 1.ToString();
+
         }
 
         private void Guests_Load(object sender, EventArgs e)
         {
+            int count = 0;
 
-            string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
             using (SqlConnection con = new SqlConnection(conString))
             {
                 con.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM EasyGuests", con);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT GuestId,FirstName,LastName,Count,GuestPhone,CheckHzmana,IsComing,Gift FROM EasyGusetData", con);
                 DataTable dtbl = new DataTable();
                 sqlDa.Fill(dtbl);
 
                 dataGuests.DataSource = dtbl;
 
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM EasyGuests", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM EasyGusetData", con))
                 {
                     using (IDataReader dr = cmd.ExecuteReader())
                     {
@@ -78,16 +62,53 @@ namespace EasyToSit
                             guest.FirsNames = dr.GetString(1);
                             guest.LastName = dr.GetString(2);
                             guest.Quantity = dr.GetInt32(3);
+                            count += dr.GetInt32(3);
                             guest.NumberPhone = dr.GetString(4);
                             guest.Invitation = dr.IsDBNull(5) ? false : dr.GetBoolean(5);
                             guest.IsComing = dr.IsDBNull(6) ? false : dr.GetBoolean(6);
                             guest.Gift = dr.GetInt32(7);
+                            guest.UserNamer = dr.GetString(8);
+                            guest.TableNumber = Int32.Parse(dr.GetString(9));
                             guestsList.Add(guest);
                         }
                     }
                 }
             }
+            if (count != 0)
+                txtCount.Text = count.ToString();
 
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGuests.Rows)
+            {
+               //if (row.IsNewRow.Equals(true))
+                    foreach (Guest g in guestsList)
+                    {
+                        if (dataGuests.Rows[row.Index].Cells["phone"].Value.ToString().Equals(g.NumberPhone))
+                            MessageBox.Show("ערך זה קיים "+ row.Cells["FristName"].Value.ToString() + row.Cells["lastName"].Value.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            guestsList.Add(new Guest(Int32.Parse(row.Cells["rowNumber"].Value.ToString()),
+                               row.Cells["FristName"].Value.ToString(), row.Cells["lastName"].Value.ToString(),
+                               Int32.Parse(row.Cells["count"].Value.ToString()), row.Cells["phone"].Value.ToString(),
+                               Convert.ToBoolean(row.Cells["CheckHzmana"].Value), Convert.ToBoolean(row.Cells["isComing"].Value), Int32.Parse(row.Cells["Gift"].Value.ToString())));
+                    }
+            }
+        }
+
+        private void dataGuests_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            this.dataGuests.Rows[e.RowIndex].Cells["rowNumber"].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void dataGuests_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex==7)
+                if(DialogResult.OK.Equals(MessageBox.Show("האם ברצוך למחוק שורה זו?")))
+                {
+
+                }
         }
     }
 }
