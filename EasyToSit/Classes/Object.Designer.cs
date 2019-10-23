@@ -41,7 +41,7 @@
             // 
             // panelDetails
             // 
-            //this.panelDetails.BackgroundImage = global::EasyToSit.Properties.Resources.EasyToSit;
+            this.panelDetails.BackgroundImage = global::EasyToSit.Properties.Resources.EasyToSit;
             this.panelDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelDetails.Controls.Add(this.lblExit);
             this.panelDetails.Controls.Add(this.btnSave);
@@ -112,7 +112,7 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // Table
+            // Object
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,7 +126,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Table";
+            this.Name = "Object";
             this.RightToLeftLayout = true;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

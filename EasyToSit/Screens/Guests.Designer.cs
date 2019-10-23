@@ -48,7 +48,6 @@
             this.CheckHzmana = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isComing = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Gift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delet = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGuests)).BeginInit();
             this.panelSave.SuspendLayout();
@@ -65,8 +64,6 @@
             // 
             // dataGuests
             // 
-            this.dataGuests.AllowUserToDeleteRows = false;
-            this.dataGuests.AllowUserToOrderColumns = true;
             this.dataGuests.AllowUserToResizeColumns = false;
             this.dataGuests.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -95,8 +92,7 @@
             this.phone,
             this.CheckHzmana,
             this.isComing,
-            this.Gift,
-            this.delet});
+            this.Gift});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -106,10 +102,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGuests.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGuests.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGuests.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGuests.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGuests.EnableHeadersVisualStyles = false;
             this.dataGuests.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGuests.Location = new System.Drawing.Point(0, 0);
+            this.dataGuests.MultiSelect = false;
             this.dataGuests.Name = "dataGuests";
             this.dataGuests.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -258,13 +255,6 @@
             this.Gift.HeaderText = "מתנה";
             this.Gift.Name = "Gift";
             // 
-            // delet
-            // 
-            this.delet.FillWeight = 35F;
-            this.delet.HeaderText = "מחק שורה";
-            this.delet.Name = "delet";
-            this.delet.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // Guests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +298,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn CheckHzmana;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isComing;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gift;
-        private System.Windows.Forms.DataGridViewButtonColumn delet;
     }
 }

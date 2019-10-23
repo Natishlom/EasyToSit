@@ -81,19 +81,24 @@ namespace EasyToSit
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            bool exsist = false;
             foreach (DataGridViewRow row in dataGuests.Rows)
             {
-               //if (row.IsNewRow.Equals(true))
+                if (row.Index < dataGuests.RowCount)
+                {
                     foreach (Guest g in guestsList)
+                        if (row.Cells["phone"].Value.ToString() == g.NumberPhone)
+                            exsist = true;
+
+                    if (exsist.Equals(true))
                     {
-                        if (dataGuests.Rows[row.Index].Cells["phone"].Value.ToString().Equals(g.NumberPhone))
-                            MessageBox.Show("ערך זה קיים "+ row.Cells["FristName"].Value.ToString() + row.Cells["lastName"].Value.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        else
-                            guestsList.Add(new Guest(Int32.Parse(row.Cells["rowNumber"].Value.ToString()),
-                               row.Cells["FristName"].Value.ToString(), row.Cells["lastName"].Value.ToString(),
-                               Int32.Parse(row.Cells["count"].Value.ToString()), row.Cells["phone"].Value.ToString(),
-                               Convert.ToBoolean(row.Cells["CheckHzmana"].Value), Convert.ToBoolean(row.Cells["isComing"].Value), Int32.Parse(row.Cells["Gift"].Value.ToString())));
+                        guestsList.Add(new Guest(Int32.Parse(row.Cells["rowNumber"].Value.ToString()),
+                           row.Cells["FristName"].Value.ToString(), row.Cells["lastName"].Value.ToString(),
+                           Int32.Parse(row.Cells["count"].Value.ToString()), row.Cells["phone"].Value.ToString(),
+                           Convert.ToBoolean(row.Cells["CheckHzmana"].Value), Convert.ToBoolean(row.Cells["isComing"].Value), Int32.Parse(row.Cells["Gift"].Value.ToString())));
+                        exsist = false;
                     }
+                }
             }
         }
 
@@ -104,8 +109,8 @@ namespace EasyToSit
 
         private void dataGuests_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex==7)
-                if(DialogResult.OK.Equals(MessageBox.Show("האם ברצוך למחוק שורה זו?")))
+            if (e.ColumnIndex == 7)
+                if (DialogResult.OK.Equals(MessageBox.Show("האם ברצוך למחוק שורה זו?")))
                 {
 
                 }
