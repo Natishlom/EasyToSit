@@ -18,7 +18,7 @@ namespace EasyToSit
         private List<Guest> guestsList = new List<Guest>();
         private bool newrowNeeded;
         Guest guest;
-        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+        string conString = "Data Source=NATI\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
         public Guests()
         {
             InitializeComponent();
@@ -62,7 +62,7 @@ namespace EasyToSit
                             guest.FirsNames = dr.GetString(1);
                             guest.LastName = dr.GetString(2);
                             guest.Quantity = dr.GetInt32(3);
-                            count += dr.GetInt32(3);
+                            count += dr.GetInt32(3);    
                             guest.NumberPhone = dr.GetString(4);
                             guest.Invitation = dr.IsDBNull(5) ? false : dr.GetBoolean(5);
                             guest.IsComing = dr.IsDBNull(6) ? false : dr.GetBoolean(6);
@@ -81,25 +81,65 @@ namespace EasyToSit
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            bool exsist = false;
+            // משתנה להחזקת רשימה זמנית של אורחית
+            List<Guest> lstTempGuests = new List<Guest>();
+            // משתנה להחזקת מיקומי אינדקס של כפילויות
+            List<int> lstIndexKfilut = new List<int>();
+            // משתנה בוליאני לבדיקה אם יש כפילות בשורה הנוכחית
+            bool IsExist = false;
+
             foreach (DataGridViewRow row in dataGuests.Rows)
             {
-                if (row.Index < dataGuests.RowCount)
+                // כל עוד מדובר בשורה עד הלפני אחרונה בטבלה
+                if (row.Index < dataGuests.RowCount-1)
                 {
-                    foreach (Guest g in guestsList)
-                        if (row.Cells["phone"].Value.ToString() == g.NumberPhone)
-                            exsist = true;
+                    //if(guestsList.Count.Equals(0))
+                    //    IsExist = true;
+                    //foreach (Guest g in guestsList)
 
-                    if (exsist.Equals(true))
+                    // ריצה על כל שורות הטבלה מלבד השורה הנוכחית ולבדוק כפילות מספר הטלפון
+                    for (int i = row.Index+1; i < dataGuests.RowCount - 1; i++)
                     {
-                        guestsList.Add(new Guest(Int32.Parse(row.Cells["rowNumber"].Value.ToString()),
+                        // השוואה בין מספרי הטלפון לבדוק אם זהים
+                        if (row.Cells["phone"].Value.ToString() == dataGuests.Rows[i].Cells["phone"].Value.ToString())
+                        {
+                            IsExist = true;
+                            lstIndexKfilut.Add(i);
+                            // לצבוע את השדה של הטלפון בטבלה בצבע אחר.
+                        }
+                        
+                    }
+                       
+                    // אם לא מצאנו כפילות מספר טלפון עבור השורה הנוכחית - הוספה לרשימה זמנית
+                    if (!IsExist)
+                    {
+                        lstTempGuests.Add(new Guest(Int32.Parse(row.Cells["rowNumber"].Value.ToString()),
                            row.Cells["FristName"].Value.ToString(), row.Cells["lastName"].Value.ToString(),
                            Int32.Parse(row.Cells["count"].Value.ToString()), row.Cells["phone"].Value.ToString(),
                            Convert.ToBoolean(row.Cells["CheckHzmana"].Value), Convert.ToBoolean(row.Cells["isComing"].Value), Int32.Parse(row.Cells["Gift"].Value.ToString())));
-                        exsist = false;
+                        
                     }
+
+                    IsExist = false;
                 }
             }
+
+            int cntTemp = 0;
+            foreach (Guest g in lstTempGuests)
+            {
+                cntTemp += g.Quantity;
+            }
+            txtCount.Text = cntTemp.ToString();
+
+            // בסיום, לבדוק אם יש כפילויות
+            //lstIndexKfilut.Count > 0
+            // אם יש כפילות - להציג הודעה למשתמש שנמצאו כפילויות
+            // ושהם לא נשמרו. ועליו לטפל בשורות הללו - יש להם צבע אחר.
+            // לאחר מכן להקליק שוב על "עדכן".
+
+
+            // אחרי שאין כפילויות - שומר ל DB
+
         }
 
         private void dataGuests_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -107,13 +147,5 @@ namespace EasyToSit
             this.dataGuests.Rows[e.RowIndex].Cells["rowNumber"].Value = (e.RowIndex + 1).ToString();
         }
 
-        private void dataGuests_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 7)
-                if (DialogResult.OK.Equals(MessageBox.Show("האם ברצוך למחוק שורה זו?")))
-                {
-
-                }
-        }
     }
 }

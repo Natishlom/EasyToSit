@@ -24,11 +24,15 @@ namespace EasyToSit
             panelBody.Show();
         }
 
+
+        private const string userName = "Easy";
+        private const string password = "Ee1234";
         public string path = System.Windows.Forms.Application.StartupPath;
         private string phone;
         private int kodeReastart;
         List<User> listUsers;
         User user;
+        string conString = "Data Source=NATI\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
 
 
         public string Phone { get => phone; set => phone = value; }
@@ -41,7 +45,7 @@ namespace EasyToSit
         public void GetDatabaseList()
         {
             listUsers = new List<User>();
-            string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+           
             using (SqlConnection con = new SqlConnection(conString))
             {
                 con.Open();
@@ -90,7 +94,7 @@ namespace EasyToSit
         //במעבר ע"י לחיצה על הנטר שדה טקסט בוקס התווים שבו יהפכו לסיסמה
         private void txtUserName_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            if (e.KeyCode == Keys.Enter || e.KeyCode.Equals(Keys.Tab))
             {
                 txtPass.UseSystemPasswordChar = true;
                 txtPass.Focus();
@@ -102,7 +106,6 @@ namespace EasyToSit
         private void btnLogin_Click(object sender, EventArgs e)
         {
             GetDatabaseList();
-            int maxId = 0;
             //בדיקה האם הוכנס שם משתמש
             if (txtUserName.Text.Length > 0 && !txtUserName.Text.Equals("שם משתמש"))
             {

@@ -158,7 +158,7 @@
             this.panelForgot.Controls.Add(this.lblFogot);
             this.panelForgot.Location = new System.Drawing.Point(32, 131);
             this.panelForgot.Name = "panelForgot";
-            this.panelForgot.Size = new System.Drawing.Size(731, 325);
+            this.panelForgot.Size = new System.Drawing.Size(721, 325);
             this.panelForgot.TabIndex = 9;
             // 
             // btnSend

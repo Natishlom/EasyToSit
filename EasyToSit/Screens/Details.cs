@@ -23,6 +23,7 @@ namespace EasyToSit
         SqlConnection con;
         SqlDataAdapter da;
         private int sapakId= 1;
+        string conString = "Data Source=NATI\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
 
         public Details(int id)
         {
@@ -84,7 +85,7 @@ namespace EasyToSit
         private void btnSave_Click(object sender, EventArgs e)
         {
             try { 
-            con = new SqlConnection("Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;");
+            con = new SqlConnection(conString);
             con.Open();
             cmd = new SqlCommand("DELETE EasySapakimData", con);
             cmd.ExecuteNonQuery();
@@ -119,7 +120,7 @@ namespace EasyToSit
             sapakim.Add(s);
             try
             {
-            con = new SqlConnection("Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;");
+            con = new SqlConnection(conString);
             con.Open();
             cmd = new SqlCommand("INSERT INTO EasySapakimData (id,name,price) VALUES ('" + s.Id + "','" + s.Name + "','" + s.Price + "')", con);
             cmd.ExecuteNonQuery();
@@ -285,7 +286,7 @@ namespace EasyToSit
             sapakim.Add(sapak);
             try
             {
-                con = new SqlConnection("Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;");
+                con = new SqlConnection(conString);
                 con.Open();
                 cmd = new SqlCommand("INSERT INTO EasySapakimData (id,name,price) VALUES ('" + sapak.Id + "','" + sapak.Name + "','" + sapak.Price + "')", con);
                 cmd.ExecuteNonQuery();
@@ -355,7 +356,7 @@ namespace EasyToSit
             }
             catch (Exception e)
             {
-
+                MessageBox.Show(e.Message, "Error");
             }
         }
 
@@ -506,7 +507,7 @@ namespace EasyToSit
 
         private void Details_Load(object sender, EventArgs e)
         {
-            string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+           
             int guset=0, gifts = 0;
             string countGuest,strGift;
 

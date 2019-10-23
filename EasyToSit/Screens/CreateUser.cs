@@ -18,6 +18,7 @@ namespace EasyToSit
         SqlCommand cmd;
         SqlConnection con;
         SqlDataAdapter da;
+        string conString = "Data Source=NATI\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
 
         internal User User { get => user; set => user = value; }
 
@@ -63,7 +64,7 @@ namespace EasyToSit
 
                             try
                             {
-                                con = new SqlConnection("Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;");
+                                con = new SqlConnection(conString);
                                 con.Open();
                                 cmd = new SqlCommand("INSERT INTO EasyUsersData (userName,password,phone,nameHusband,nameWife,lastName,taypeEvent,dataEvent,nameHall,eMail) VALUES ('"+txtUserName.Text+ "','" + txtPassword.Text + "','" + txtPhone.Text + "','" + txtxHusband.Text + "','" + txtWife.Text + "','" + txtLastName.Text + "','" + txtTaype.Text + "'," + "'" + date + "','" + txtHall.Text + "','" + txtMail.Text + "')", con);
                                 cmd.ExecuteNonQuery();
