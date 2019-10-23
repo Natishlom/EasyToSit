@@ -18,7 +18,10 @@ namespace EasyToSit
         private List<Guest> guestsList = new List<Guest>();
         private bool newrowNeeded;
         Guest guest;
-        string conString = "Data Source=NATI\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True";
+        SqlCommand cmd;
+        SqlConnection con;
+        SqlDataAdapter da;
         public Guests()
         {
             InitializeComponent();
@@ -62,13 +65,13 @@ namespace EasyToSit
                             guest.FirsNames = dr.GetString(1);
                             guest.LastName = dr.GetString(2);
                             guest.Quantity = dr.GetInt32(3);
-                            count += dr.GetInt32(3);    
+                            count += dr.GetInt32(3);
                             guest.NumberPhone = dr.GetString(4);
                             guest.Invitation = dr.IsDBNull(5) ? false : dr.GetBoolean(5);
                             guest.IsComing = dr.IsDBNull(6) ? false : dr.GetBoolean(6);
                             guest.Gift = dr.GetInt32(7);
-                            guest.UserNamer = dr.GetString(8);
-                            guest.TableNumber = Int32.Parse(dr.GetString(9));
+                            //guest.UserNamer = dr.GetString(8);
+                            //guest.TableNumber = Int32.Parse(dr.GetString(9));
                             guestsList.Add(guest);
                         }
                     }
@@ -78,6 +81,7 @@ namespace EasyToSit
                 txtCount.Text = count.ToString();
 
         }
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -91,14 +95,10 @@ namespace EasyToSit
             foreach (DataGridViewRow row in dataGuests.Rows)
             {
                 // כל עוד מדובר בשורה עד הלפני אחרונה בטבלה
-                if (row.Index < dataGuests.RowCount-1)
+                if (row.Index < dataGuests.RowCount - 1)
                 {
-                    //if(guestsList.Count.Equals(0))
-                    //    IsExist = true;
-                    //foreach (Guest g in guestsList)
-
                     // ריצה על כל שורות הטבלה מלבד השורה הנוכחית ולבדוק כפילות מספר הטלפון
-                    for (int i = row.Index+1; i < dataGuests.RowCount - 1; i++)
+                    for (int i = row.Index + 1; i < dataGuests.RowCount - 1; i++)
                     {
                         // השוואה בין מספרי הטלפון לבדוק אם זהים
                         if (row.Cells["phone"].Value.ToString() == dataGuests.Rows[i].Cells["phone"].Value.ToString())
@@ -106,18 +106,23 @@ namespace EasyToSit
                             IsExist = true;
                             lstIndexKfilut.Add(i);
                             // לצבוע את השדה של הטלפון בטבלה בצבע אחר.
+                            dataGuests.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
                         }
-                        
+
                     }
-                       
+
                     // אם לא מצאנו כפילות מספר טלפון עבור השורה הנוכחית - הוספה לרשימה זמנית
                     if (!IsExist)
                     {
-                        lstTempGuests.Add(new Guest(Int32.Parse(row.Cells["rowNumber"].Value.ToString()),
-                           row.Cells["FristName"].Value.ToString(), row.Cells["lastName"].Value.ToString(),
-                           Int32.Parse(row.Cells["count"].Value.ToString()), row.Cells["phone"].Value.ToString(),
-                           Convert.ToBoolean(row.Cells["CheckHzmana"].Value), Convert.ToBoolean(row.Cells["isComing"].Value), Int32.Parse(row.Cells["Gift"].Value.ToString())));
-                        
+                        Guest g = new Guest();
+                        g.FirsNames = row.Cells["FirstName"].Value.ToString();
+                        g.LastName = row.Cells["lastName"].Value.ToString();
+                        g.Quantity = row.Cells["count"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["count"].Value.ToString());
+                        g.NumberPhone = row.Cells["phone"].Value.ToString();
+                        g.Invitation = row.Cells["CheckHzmana"].Value == DBNull.Value ? false : Convert.ToBoolean(row.Cells["CheckHzmana"].Value.ToString());
+                        g.IsComing = row.Cells["isComing"].Value == DBNull.Value ? false : Convert.ToBoolean(row.Cells["isComing"].Value.ToString());
+                        g.Gift = row.Cells["Gift"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["Gift"].Value.ToString());
+                        lstTempGuests.Add(g);
                     }
 
                     IsExist = false;
@@ -136,7 +141,28 @@ namespace EasyToSit
             // אם יש כפילות - להציג הודעה למשתמש שנמצאו כפילויות
             // ושהם לא נשמרו. ועליו לטפל בשורות הללו - יש להם צבע אחר.
             // לאחר מכן להקליק שוב על "עדכן".
-
+            //if (lstIndexKfilut.Count > 0)
+            //{
+                //DialogResult result = MessageBox.Show("נמצאו שורות בהן ככל הנראה יש אורחים פעמים" + Environment.NewLine +
+                //    "שורות אילו נצבעו באדום האם ברצונך בכל זאת להמשיך?", "רגע חכה", MessageBoxButtons.YesNo);
+                //if (result.Equals(DialogResult.Yes))
+                //{
+                //    MessageBox.Show("לאחר התיקון נא ללחוץ שוב על כפתור עדכון לפני שמירה", "עצור", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //}
+                //else if (result.Equals(DialogResult.No))
+                //{
+                    //foreach (int row in lstIndexKfilut)
+                    //{
+                    //    if (dataGuests.Rows[row].DefaultCellStyle.BackColor.Equals(Color.LightSkyBlue))
+                    //        dataGuests.Rows[row].DefaultCellStyle.ForeColor = Color.WhiteSmoke;
+                    //    else
+                    //        dataGuests.Rows[row].DefaultCellStyle.ForeColor = Color.LightSkyBlue;
+                    //}
+                    guestsList = new List<Guest>();
+                    guestsList = lstTempGuests;
+                //}
+                //lstIndexKfilut = new List<int>();
+           // }
 
             // אחרי שאין כפילויות - שומר ל DB
 
@@ -147,5 +173,37 @@ namespace EasyToSit
             this.dataGuests.Rows[e.RowIndex].Cells["rowNumber"].Value = (e.RowIndex + 1).ToString();
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(conString);
+                con.Open();
+                cmd = new SqlCommand("DELETE EasyGusetData", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                foreach (Guest guest in guestsList)
+                {
+                con = new SqlConnection(conString);
+                con.Open();
+                cmd = new SqlCommand("INSERT INTO EasyGusetData (FirstName,LastName,Count,GuestPhone,CheckHzmana,IsComing,Gift) VALUES ('"  + guest.FirsNames + "','" + guest.LastName + "','" + guest.Quantity+ "','" + guest.NumberPhone + "','" + guest.Invitation + "','" + guest.IsComing + "','" + guest.Gift + "')", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                }
+                MessageBox.Show("האורחים שהוספת עודכנו בהצלחה", "נשמר בהצלחה",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

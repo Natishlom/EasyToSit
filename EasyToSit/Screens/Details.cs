@@ -23,7 +23,7 @@ namespace EasyToSit
         SqlConnection con;
         SqlDataAdapter da;
         private int sapakId= 1;
-        string conString = "Data Source=NATI\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True";
 
         public Details(int id)
         {

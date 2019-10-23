@@ -18,7 +18,7 @@ namespace EasyToSit
         SqlCommand cmd;
         SqlConnection con;
         SqlDataAdapter da;
-        string conString = "Data Source=NATI\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True";
 
         internal User User { get => user; set => user = value; }
 

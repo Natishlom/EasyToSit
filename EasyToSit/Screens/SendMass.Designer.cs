@@ -36,28 +36,28 @@
             this.panelBody = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.checkGuests = new System.Windows.Forms.TabPage();
+            this.checkAll = new System.Windows.Forms.CheckBox();
             this.dataGuests = new System.Windows.Forms.DataGridView();
-            this.bodyMessage = new System.Windows.Forms.TabPage();
-            this.txtMassege = new System.Windows.Forms.TextBox();
-            this.pictureMass = new System.Windows.Forms.PictureBox();
-            this.cboTaypeMassege = new System.Windows.Forms.ComboBox();
-            this.lblTaype = new System.Windows.Forms.Label();
-            this.tabSend = new System.Windows.Forms.TabPage();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.lblListGest = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtMass = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
             this.CheckGuest = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.FristName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chekHazmna = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isComing = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.checkAll = new System.Windows.Forms.CheckBox();
+            this.bodyMessage = new System.Windows.Forms.TabPage();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtMassege = new System.Windows.Forms.TextBox();
+            this.pictureMass = new System.Windows.Forms.PictureBox();
+            this.cboTaypeMessage = new System.Windows.Forms.ComboBox();
+            this.lblTaype = new System.Windows.Forms.Label();
+            this.tabSend = new System.Windows.Forms.TabPage();
             this.LBGuest = new System.Windows.Forms.ListBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.txtMass = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblListGest = new System.Windows.Forms.Label();
             this.panelBody.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.checkGuests.SuspendLayout();
@@ -107,6 +107,17 @@
             this.checkGuests.TabIndex = 0;
             this.checkGuests.Text = "בחירת אורחים";
             // 
+            // checkAll
+            // 
+            this.checkAll.AutoSize = true;
+            this.checkAll.Location = new System.Drawing.Point(631, 0);
+            this.checkAll.Name = "checkAll";
+            this.checkAll.Size = new System.Drawing.Size(135, 20);
+            this.checkAll.TabIndex = 2;
+            this.checkAll.Text = "סמן את כל האורחים";
+            this.checkAll.UseVisualStyleBackColor = true;
+            this.checkAll.CheckedChanged += new System.EventHandler(this.checkAll_CheckedChanged);
+            // 
             // dataGuests
             // 
             this.dataGuests.AllowUserToAddRows = false;
@@ -118,8 +129,8 @@
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightSkyBlue;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             this.dataGuests.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGuests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGuests.BackgroundColor = System.Drawing.Color.White;
@@ -134,7 +145,7 @@
             this.dataGuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGuests.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CheckGuest,
-            this.FristName,
+            this.FirstName,
             this.lastName,
             this.count,
             this.phone,
@@ -143,7 +154,7 @@
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -161,8 +172,8 @@
             dataGridViewCellStyle9.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle9.Format = "N2";
             dataGridViewCellStyle9.NullValue = "0";
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.LightSkyBlue;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGuests.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGuests.RowHeadersWidth = 20;
@@ -170,6 +181,64 @@
             this.dataGuests.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGuests.Size = new System.Drawing.Size(766, 393);
             this.dataGuests.TabIndex = 1;
+            // 
+            // CheckGuest
+            // 
+            this.CheckGuest.FillWeight = 33.9742F;
+            this.CheckGuest.HeaderText = "בחירת אורח";
+            this.CheckGuest.Name = "CheckGuest";
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.FillWeight = 97.06913F;
+            this.FirstName.HeaderText = "שם פרטי:";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // lastName
+            // 
+            this.lastName.DataPropertyName = "LastName";
+            this.lastName.FillWeight = 97.06913F;
+            this.lastName.HeaderText = "שם משפחה:";
+            this.lastName.Name = "lastName";
+            this.lastName.ReadOnly = true;
+            // 
+            // count
+            // 
+            this.count.DataPropertyName = "Count";
+            this.count.FillWeight = 48.53456F;
+            this.count.HeaderText = "כמות:";
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            // 
+            // phone
+            // 
+            this.phone.DataPropertyName = "GuestPhone";
+            this.phone.FillWeight = 97.06913F;
+            this.phone.HeaderText = "מספר נייד:";
+            this.phone.Name = "phone";
+            this.phone.ReadOnly = true;
+            // 
+            // chekHazmna
+            // 
+            this.chekHazmna.DataPropertyName = "ChekHazmna";
+            this.chekHazmna.FalseValue = "0";
+            this.chekHazmna.FillWeight = 33.9742F;
+            this.chekHazmna.HeaderText = "קיבל הזמנה:";
+            this.chekHazmna.Name = "chekHazmna";
+            this.chekHazmna.ReadOnly = true;
+            this.chekHazmna.TrueValue = "1";
+            // 
+            // isComing
+            // 
+            this.isComing.DataPropertyName = "IsComing";
+            this.isComing.FalseValue = "0";
+            this.isComing.FillWeight = 33.9742F;
+            this.isComing.HeaderText = "אישר הגעה";
+            this.isComing.Name = "isComing";
+            this.isComing.ReadOnly = true;
+            this.isComing.TrueValue = "1";
             // 
             // bodyMessage
             // 
@@ -179,7 +248,7 @@
             this.bodyMessage.Controls.Add(this.btnSave);
             this.bodyMessage.Controls.Add(this.txtMassege);
             this.bodyMessage.Controls.Add(this.pictureMass);
-            this.bodyMessage.Controls.Add(this.cboTaypeMassege);
+            this.bodyMessage.Controls.Add(this.cboTaypeMessage);
             this.bodyMessage.Controls.Add(this.lblTaype);
             this.bodyMessage.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.bodyMessage.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -189,6 +258,21 @@
             this.bodyMessage.Size = new System.Drawing.Size(772, 396);
             this.bodyMessage.TabIndex = 1;
             this.bodyMessage.Text = "תוכן הודעה";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(63)))), ((int)(((byte)(115)))));
+            this.btnSave.Location = new System.Drawing.Point(8, 353);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnSave.Size = new System.Drawing.Size(98, 35);
+            this.btnSave.TabIndex = 23;
+            this.btnSave.Text = "שמור";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtMassege
             // 
@@ -215,23 +299,23 @@
             this.pictureMass.TabStop = false;
             this.pictureMass.Visible = false;
             // 
-            // cboTaypeMassege
+            // cboTaypeMessage
             // 
-            this.cboTaypeMassege.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(63)))), ((int)(((byte)(115)))));
-            this.cboTaypeMassege.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.cboTaypeMassege.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.cboTaypeMassege.FormattingEnabled = true;
-            this.cboTaypeMassege.Items.AddRange(new object[] {
+            this.cboTaypeMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(63)))), ((int)(((byte)(115)))));
+            this.cboTaypeMessage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.cboTaypeMessage.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cboTaypeMessage.FormattingEnabled = true;
+            this.cboTaypeMessage.Items.AddRange(new object[] {
             "הודעת אישור הגעה",
             "הודעת תזכורת על אישור הגעה",
             "הודעת תזכורת להושבה",
             "הודעת תזכורת ביום האירוע",
             "הודעת תודה על ההשתתפות"});
-            this.cboTaypeMassege.Location = new System.Drawing.Point(223, 6);
-            this.cboTaypeMassege.Name = "cboTaypeMassege";
-            this.cboTaypeMassege.Size = new System.Drawing.Size(334, 27);
-            this.cboTaypeMassege.TabIndex = 2;
-            this.cboTaypeMassege.SelectedIndexChanged += new System.EventHandler(this.cboTaypeMassege_SelectedIndexChanged);
+            this.cboTaypeMessage.Location = new System.Drawing.Point(223, 6);
+            this.cboTaypeMessage.Name = "cboTaypeMessage";
+            this.cboTaypeMessage.Size = new System.Drawing.Size(334, 27);
+            this.cboTaypeMessage.TabIndex = 2;
+            this.cboTaypeMessage.SelectedIndexChanged += new System.EventHandler(this.cboTaypeMessage_SelectedIndexChanged);
             // 
             // lblTaype
             // 
@@ -264,71 +348,17 @@
             this.tabSend.TabIndex = 2;
             this.tabSend.Text = "סיכום ושליחה";
             // 
-            // btnSave
+            // LBGuest
             // 
-            this.btnSave.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(63)))), ((int)(((byte)(115)))));
-            this.btnSave.Location = new System.Drawing.Point(8, 353);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnSave.Size = new System.Drawing.Size(98, 35);
-            this.btnSave.TabIndex = 23;
-            this.btnSave.Text = "שמור";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // lblListGest
-            // 
-            this.lblListGest.AutoSize = true;
-            this.lblListGest.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblListGest.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblListGest.Location = new System.Drawing.Point(594, 10);
-            this.lblListGest.Name = "lblListGest";
-            this.lblListGest.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblListGest.Size = new System.Drawing.Size(157, 38);
-            this.lblListGest.TabIndex = 2;
-            this.lblListGest.Text = "רשימת אורחים\r\nאליהם תשלח ההודעה:";
-            this.lblListGest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(296, 20);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(102, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "תוכן ההודעה :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::EasyToSit.Properties.Resources.Invitation;
-            this.pictureBox1.Location = new System.Drawing.Point(180, 51);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(334, 337);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
-            // txtMass
-            // 
-            this.txtMass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(235)))));
-            this.txtMass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMass.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.txtMass.Location = new System.Drawing.Point(204, 219);
-            this.txtMass.Multiline = true;
-            this.txtMass.Name = "txtMass";
-            this.txtMass.ReadOnly = true;
-            this.txtMass.Size = new System.Drawing.Size(229, 152);
-            this.txtMass.TabIndex = 6;
-            this.txtMass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtMass.Visible = false;
+            this.LBGuest.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LBGuest.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.LBGuest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(63)))), ((int)(((byte)(115)))));
+            this.LBGuest.FormattingEnabled = true;
+            this.LBGuest.ItemHeight = 19;
+            this.LBGuest.Location = new System.Drawing.Point(566, 61);
+            this.LBGuest.Name = "LBGuest";
+            this.LBGuest.Size = new System.Drawing.Size(181, 308);
+            this.LBGuest.TabIndex = 25;
             // 
             // btnSend
             // 
@@ -345,86 +375,56 @@
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // CheckGuest
+            // txtMass
             // 
-            this.CheckGuest.FillWeight = 33.9742F;
-            this.CheckGuest.HeaderText = "בחירת אורח";
-            this.CheckGuest.Name = "CheckGuest";
+            this.txtMass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(235)))));
+            this.txtMass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMass.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txtMass.Location = new System.Drawing.Point(204, 219);
+            this.txtMass.Multiline = true;
+            this.txtMass.Name = "txtMass";
+            this.txtMass.ReadOnly = true;
+            this.txtMass.Size = new System.Drawing.Size(229, 152);
+            this.txtMass.TabIndex = 6;
+            this.txtMass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMass.Visible = false;
             // 
-            // FristName
+            // pictureBox1
             // 
-            this.FristName.DataPropertyName = "FirstName";
-            this.FristName.FillWeight = 97.06913F;
-            this.FristName.HeaderText = "שם פרטי:";
-            this.FristName.Name = "FristName";
-            this.FristName.ReadOnly = true;
+            this.pictureBox1.Image = global::EasyToSit.Properties.Resources.Invitation;
+            this.pictureBox1.Location = new System.Drawing.Point(180, 51);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(334, 337);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
-            // lastName
+            // label1
             // 
-            this.lastName.DataPropertyName = "LastName";
-            this.lastName.FillWeight = 97.06913F;
-            this.lastName.HeaderText = "שם משפחה:";
-            this.lastName.Name = "lastName";
-            this.lastName.ReadOnly = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(296, 20);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(102, 19);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "תוכן ההודעה :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // count
+            // lblListGest
             // 
-            this.count.DataPropertyName = "Count";
-            this.count.FillWeight = 48.53456F;
-            this.count.HeaderText = "כמות:";
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            // 
-            // phone
-            // 
-            this.phone.DataPropertyName = "PhoneNumber";
-            this.phone.FillWeight = 97.06913F;
-            this.phone.HeaderText = "מספר נייד:";
-            this.phone.Name = "phone";
-            this.phone.ReadOnly = true;
-            // 
-            // chekHazmna
-            // 
-            this.chekHazmna.DataPropertyName = "ChekHazmna";
-            this.chekHazmna.FalseValue = "0";
-            this.chekHazmna.FillWeight = 33.9742F;
-            this.chekHazmna.HeaderText = "קיבל הזמנה:";
-            this.chekHazmna.Name = "chekHazmna";
-            this.chekHazmna.ReadOnly = true;
-            this.chekHazmna.TrueValue = "1";
-            // 
-            // isComing
-            // 
-            this.isComing.DataPropertyName = "IsComing";
-            this.isComing.FalseValue = "0";
-            this.isComing.FillWeight = 33.9742F;
-            this.isComing.HeaderText = "אישר הגעה";
-            this.isComing.Name = "isComing";
-            this.isComing.ReadOnly = true;
-            this.isComing.TrueValue = "1";
-            // 
-            // checkAll
-            // 
-            this.checkAll.AutoSize = true;
-            this.checkAll.Location = new System.Drawing.Point(631, 0);
-            this.checkAll.Name = "checkAll";
-            this.checkAll.Size = new System.Drawing.Size(135, 20);
-            this.checkAll.TabIndex = 2;
-            this.checkAll.Text = "סמן את כל האורחים";
-            this.checkAll.UseVisualStyleBackColor = true;
-            this.checkAll.CheckedChanged += new System.EventHandler(this.checkAll_CheckedChanged);
-            // 
-            // LBGuest
-            // 
-            this.LBGuest.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LBGuest.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.LBGuest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(63)))), ((int)(((byte)(115)))));
-            this.LBGuest.FormattingEnabled = true;
-            this.LBGuest.ItemHeight = 19;
-            this.LBGuest.Location = new System.Drawing.Point(566, 61);
-            this.LBGuest.Name = "LBGuest";
-            this.LBGuest.Size = new System.Drawing.Size(181, 308);
-            this.LBGuest.TabIndex = 25;
+            this.lblListGest.AutoSize = true;
+            this.lblListGest.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lblListGest.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblListGest.Location = new System.Drawing.Point(594, 10);
+            this.lblListGest.Name = "lblListGest";
+            this.lblListGest.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblListGest.Size = new System.Drawing.Size(157, 38);
+            this.lblListGest.TabIndex = 2;
+            this.lblListGest.Text = "רשימת אורחים\r\nאליהם תשלח ההודעה:";
+            this.lblListGest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SendMass
             // 
@@ -466,7 +466,7 @@
         private System.Windows.Forms.TabPage tabSend;
         private System.Windows.Forms.DataGridView dataGuests;
         private System.Windows.Forms.PictureBox pictureMass;
-        private System.Windows.Forms.ComboBox cboTaypeMassege;
+        private System.Windows.Forms.ComboBox cboTaypeMessage;
         private System.Windows.Forms.Label lblTaype;
         private System.Windows.Forms.TextBox txtMassege;
         private System.Windows.Forms.Button btnSave;
@@ -475,14 +475,14 @@
         private System.Windows.Forms.Label lblListGest;
         private System.Windows.Forms.TextBox txtMass;
         private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.CheckBox checkAll;
+        private System.Windows.Forms.ListBox LBGuest;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CheckGuest;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FristName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn count;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chekHazmna;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isComing;
-        private System.Windows.Forms.CheckBox checkAll;
-        private System.Windows.Forms.ListBox LBGuest;
     }
 }

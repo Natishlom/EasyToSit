@@ -32,7 +32,7 @@ namespace EasyToSit
         private int kodeReastart;
         List<User> listUsers;
         User user;
-        string conString = "Data Source=NATI\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True;";
+        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True";
 
 
         public string Phone { get => phone; set => phone = value; }

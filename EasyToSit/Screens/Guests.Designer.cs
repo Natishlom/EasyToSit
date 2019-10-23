@@ -36,7 +36,7 @@
             this.panelBody = new System.Windows.Forms.Panel();
             this.dataGuests = new System.Windows.Forms.DataGridView();
             this.rowNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FristName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,7 +86,7 @@
             this.dataGuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGuests.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rowNumber,
-            this.FristName,
+            this.FirstName,
             this.lastName,
             this.count,
             this.phone,
@@ -94,11 +94,11 @@
             this.isComing,
             this.Gift});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGuests.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGuests.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,11 +134,11 @@
             this.rowNumber.HeaderText = "מס שורה";
             this.rowNumber.Name = "rowNumber";
             // 
-            // FristName
+            // FirstName
             // 
-            this.FristName.DataPropertyName = "FirstName";
-            this.FristName.HeaderText = "שם פרטי:";
-            this.FristName.Name = "FristName";
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "שם פרטי:";
+            this.FirstName.Name = "FirstName";
             // 
             // lastName
             // 
@@ -253,6 +253,7 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "שמור";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Guests
             // 
@@ -290,7 +291,7 @@
         private System.Windows.Forms.TextBox txtCount;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FristName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn count;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;

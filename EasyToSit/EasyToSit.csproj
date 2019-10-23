@@ -102,8 +102,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EasyToSitDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="NexmoDotnetCodeSnippets\Authentication\BasicAuth.cs" />
-    <Compile Include="NexmoDotnetCodeSnippets\Authentication\FullAuth.cs" />
     <Compile Include="Screens\CreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,7 +159,6 @@
     <Compile Include="Classes\Object.Designer.cs">
       <DependentUpon>Object.cs</DependentUpon>
     </Compile>
-    <Compile Include="SMSSender.cs" />
     <Compile Include="UpdateName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +266,17 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Invitation.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SMSCom">
+      <Guid>{02E17062-2AE1-4C12-AEEB-F57BD4C3E91F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
