@@ -166,6 +166,9 @@
       <DependentUpon>UpdateName.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Screens\CreateSkitza.resx">
+      <DependentUpon>CreateSkitza.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\CreateUser.resx">
       <DependentUpon>CreateUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +280,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

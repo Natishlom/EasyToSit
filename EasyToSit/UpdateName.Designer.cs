@@ -108,7 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            //this.BackgroundImage = global::EasyToSit.Properties.Resources.EasyToSit;
+            this.BackgroundImage = global::EasyToSit.Properties.Resources.EasyToSit;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(311, 259);
             this.Controls.Add(this.lblExit);

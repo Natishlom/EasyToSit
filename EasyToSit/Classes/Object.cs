@@ -12,17 +12,19 @@ namespace EasyToSit
 {
     public partial class Object : Form
     {
-        private int id;
+        private string id;
         private int diner;
         private int numberTable;
         private bool netunim;
         private PictureBox picture;
+        private Point point;
 
         public int Diner { get => diner; set => diner = value; }
         public int NumberTable { get => numberTable; set => numberTable = value; }
         public bool Netunim { get => netunim; set => netunim = value; }
         public PictureBox Picture { get => picture; set => picture = value; }
-        public int Id { get => id; set => id = value; }
+        public string Id { get => id; set => id = value; }
+        public Point Point { get => point; set => point = value; }
 
         public Object()
         {
