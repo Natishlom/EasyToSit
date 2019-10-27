@@ -23,11 +23,13 @@ namespace EasyToSit
         SqlConnection con;
         SqlDataAdapter da;
         private int sapakId= 1;
-        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True";
+        string nameCpu = System.IO.File.ReadAllText(@"C:\Temp\conString.txt");
+        string conString;
 
         public Details(int id)
         {
             InitializeComponent();
+            conString = string.Format("Data Source={0}\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True", nameCpu);
             AddSapakim();
             LoginPage login = new LoginPage();
             login.GetDatabaseList();

@@ -75,6 +75,7 @@
             this.dataGuests.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGuests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGuests.BackgroundColor = System.Drawing.Color.White;
+            this.dataGuests.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSkyBlue;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -101,7 +102,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGuests.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGuests.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGuests.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGuests.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGuests.EnableHeadersVisualStyles = false;
             this.dataGuests.GridColor = System.Drawing.Color.SteelBlue;

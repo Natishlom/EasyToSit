@@ -18,13 +18,15 @@ namespace EasyToSit
         private List<Guest> guestsList = new List<Guest>();
         private bool newrowNeeded;
         Guest guest;
-        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True";
+        string nameCpu = System.IO.File.ReadAllText(@"C:\Temp\conString.txt");
+        string conString;
         SqlCommand cmd;
         SqlConnection con;
         SqlDataAdapter da;
         public Guests()
         {
             InitializeComponent();
+            conString = string.Format("Data Source={0}\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True", nameCpu);
         }
 
         public bool NewRowNeeded { get => newrowNeeded; set => newrowNeeded = value; }
@@ -141,28 +143,28 @@ namespace EasyToSit
             // אם יש כפילות - להציג הודעה למשתמש שנמצאו כפילויות
             // ושהם לא נשמרו. ועליו לטפל בשורות הללו - יש להם צבע אחר.
             // לאחר מכן להקליק שוב על "עדכן".
-            //if (lstIndexKfilut.Count > 0)
-            //{
-                //DialogResult result = MessageBox.Show("נמצאו שורות בהן ככל הנראה יש אורחים פעמים" + Environment.NewLine +
-                //    "שורות אילו נצבעו באדום האם ברצונך בכל זאת להמשיך?", "רגע חכה", MessageBoxButtons.YesNo);
-                //if (result.Equals(DialogResult.Yes))
-                //{
-                //    MessageBox.Show("לאחר התיקון נא ללחוץ שוב על כפתור עדכון לפני שמירה", "עצור", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                //}
-                //else if (result.Equals(DialogResult.No))
-                //{
-                    //foreach (int row in lstIndexKfilut)
-                    //{
-                    //    if (dataGuests.Rows[row].DefaultCellStyle.BackColor.Equals(Color.LightSkyBlue))
-                    //        dataGuests.Rows[row].DefaultCellStyle.ForeColor = Color.WhiteSmoke;
-                    //    else
-                    //        dataGuests.Rows[row].DefaultCellStyle.ForeColor = Color.LightSkyBlue;
-                    //}
+            if (lstIndexKfilut.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("נמצאו שורות בהן ככל הנראה יש אורחים פעמים" + Environment.NewLine +
+                    "שורות אילו נצבעו באדום האם ברצונך בכל זאת להמשיך?", "רגע חכה", MessageBoxButtons.YesNo);
+                if (result.Equals(DialogResult.Yes))
+                {
+                    MessageBox.Show("לאחר התיקון נא ללחוץ שוב על כפתור עדכון לפני שמירה", "עצור", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else if (result.Equals(DialogResult.No))
+                {
+                    foreach (int row in lstIndexKfilut)
+                    {
+                        if (dataGuests.Rows[row].DefaultCellStyle.BackColor.Equals(Color.LightSkyBlue))
+                            dataGuests.Rows[row].DefaultCellStyle.ForeColor = Color.WhiteSmoke;
+                        else
+                            dataGuests.Rows[row].DefaultCellStyle.ForeColor = Color.LightSkyBlue;
+                    }
                     guestsList = new List<Guest>();
                     guestsList = lstTempGuests;
-                //}
-                //lstIndexKfilut = new List<int>();
-           // }
+                }
+                lstIndexKfilut = new List<int>();
+            }
 
             // אחרי שאין כפילויות - שומר ל DB
 

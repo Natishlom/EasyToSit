@@ -18,13 +18,15 @@ namespace EasyToSit
         SqlCommand cmd;
         SqlConnection con;
         SqlDataAdapter da;
-        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True";
+        string nameCpu = System.IO.File.ReadAllText(@"C:\Temp\conString.txt");
+        string conString;
 
         internal User User { get => user; set => user = value; }
 
         public CreateUser()
         {
             InitializeComponent();
+            conString = string.Format("Data Source={0}\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True", nameCpu);
         }
 
         //סגירת החלון

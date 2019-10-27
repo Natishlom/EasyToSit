@@ -18,13 +18,6 @@ namespace EasyToSit
 {
     public partial class LoginPage : Form
     {
-        public LoginPage()
-        {
-            InitializeComponent();
-            panelBody.Show();
-        }
-
-
         private const string userName = "Easy";
         private const string password = "Ee1234";
         public string path = System.Windows.Forms.Application.StartupPath;
@@ -32,7 +25,16 @@ namespace EasyToSit
         private int kodeReastart;
         List<User> listUsers;
         User user;
-        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True";
+        string nameCpu = System.IO.File.ReadAllText(@"C:\Temp\conString.txt");
+        string conString ;
+
+        public LoginPage()
+        {
+            InitializeComponent();
+            panelBody.Show();
+            conString = string.Format("Data Source={0}\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True", nameCpu);
+        }
+
 
 
         public string Phone { get => phone; set => phone = value; }

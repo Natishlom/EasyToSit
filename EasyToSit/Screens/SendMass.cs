@@ -23,11 +23,13 @@ namespace EasyToSit
         User userName;
         List<User> listUsers;
         string newLine = Environment.NewLine;
-        string conString = "Data Source=DESKTOP-O0DARQB\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True";
+        string nameCpu = System.IO.File.ReadAllText(@"C:\Temp\conString.txt");
+        string conString;
 
         public SendMass()
         {
             InitializeComponent();
+            conString = string.Format("Data Source={0}\\EASYTOSIT;Initial Catalog=EasyToSit;Integrated Security=True", nameCpu);
         }
 
         //קבלת מספר המשתמש כדי לאסוף נתונים על האירוע
@@ -201,40 +203,40 @@ namespace EasyToSit
 
         //מתודת שליחת SMS
         //המקבלת מספר לשליחה וטקסט ההודעה
-        public int sendSms(string phoneNumberToSend,string textMessage)
-        {
-            try
-            {
-                // יצירת אובייקט אס אמ אס
-                SMSCom.SMSSender sms = new SMSCom.SMSSender();
+        //public int sendSms(string phoneNumberToSend,string textMessage)
+        //{
+        //    try
+        //    {
+        //        // יצירת אובייקט אס אמ אס
+        //      //  SMSCom.SMSSender sms = new SMSCom.SMSSender();
 
-                // שם משתמש וסיסמא של ארדני לבנק ההודעות
-                sms.Username = "059694463";
-                sms.Password = "8104781047";
+        //        // שם משתמש וסיסמא של ארדני לבנק ההודעות
+        //        /sms.Username = "059694463";
+        //        sms.Password = "8104781047";
 
-                // מספר הטלפון להצגה שממנו לכאורה נשלחה ההודעה
-                sms.Source = "050-9876543";
+        //        // מספר הטלפון להצגה שממנו לכאורה נשלחה ההודעה
+        //        sms.Source = "050-9876543";
 
-                // מספר הטלפון שרוצים לשלוח אליו
-                string phoneNumber = phoneNumberToSend;
+        //        // מספר הטלפון שרוצים לשלוח אליו
+        //        string phoneNumber = phoneNumberToSend;
 
-                // תוכן ההודעה שרוצים לשלוח.
-                // עד 134 תוים = חיוב הודעה אחת.
-                // כל 67 תווים = חיוב נוסף.
-                string message = textMessage;
+        //        // תוכן ההודעה שרוצים לשלוח.
+        //        // עד 134 תוים = חיוב הודעה אחת.
+        //        // כל 67 תווים = חיוב נוסף.
+        //        string message = textMessage;
 
-                // מתודה לשליחת ההודעה
-                sms.SendSMS(message, phoneNumber);
+        //        // מתודה לשליחת ההודעה
+        //        sms.SendSMS(message, phoneNumber);
 
-                // קבלת קוד תגובה לשליחת ההודעה.
-                // קוד תגובה 0 = תקין
-                // קודי תגובה אחרים מייצגים שגיאות שונות - ההודעה לא נשלחה
-                int result = sms.ResponseCode;
+        //        // קבלת קוד תגובה לשליחת ההודעה.
+        //        // קוד תגובה 0 = תקין
+        //        // קודי תגובה אחרים מייצגים שגיאות שונות - ההודעה לא נשלחה
+        //        int result = sms.ResponseCode;
 
-                return result;
-            }
-            catch { return 0; }
-        }
+        //        return result;
+        //    }
+        //    catch { return 0; }
+        //}
 
         //שליחת SMS לאורחים שנבחרו.
         private void btnSend_Click(object sender, EventArgs e)
@@ -245,7 +247,7 @@ namespace EasyToSit
             {
                 foreach (Guest guest in guestsListSend)
                 {
-                    result = sendSms(guest.NumberPhone, txtMass.Text).ToString();
+                   // result = sendSms(guest.NumberPhone, txtMass.Text).ToString();
                     if (result.Equals("0"))
                         sum++;
                 }
